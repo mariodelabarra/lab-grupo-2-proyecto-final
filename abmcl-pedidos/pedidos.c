@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+// #include "articulos.h"
 
 typedef struct {
     int idPedido;        // auto incremental
@@ -19,10 +20,15 @@ void listadoPedido();
 
 void altaPedido()
 {
+    printf("Que desea agregar a su pedido:\n");
+    // Mostrar articulos
+    // Pedir id de articulo
 }
 
 void bajaPedido()
 {
+    printf("Que pedido desea eliminar: ");
+
 }
 
 void modificacionPedido()

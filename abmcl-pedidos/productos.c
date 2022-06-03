@@ -49,31 +49,33 @@ void descripcionProducto()
 
 void altaProducto()
 {
-    char nombreProd[20];
-    int idProd = 0;
-
     system("cls");
 
     printf("Nombre del producto: ");
     fflush(stdin);
-    gets(nombreProd);
+    // gets();
 
     descripcionProducto();
-
-    idProd++;
 }
 
 void bajaProducto()
 {
+    // listadoProducto();
+    printf("Id del articulo a eliminar: ");
+    // idProducto = getche();
+
+    // Mensaje de exito o fallo segun cada caso
 }
 
 void modificacionProducto()
 {
+    // listadoProducto();
+    printf("Id del articulo a modificar: ");
+    // idProducto = getche();
+
+    // Mensaje de exito o fallo segun cada caso
 }
 
-void consultaProducto()
-{
-}
 void listadoProducto()
 {
 }
