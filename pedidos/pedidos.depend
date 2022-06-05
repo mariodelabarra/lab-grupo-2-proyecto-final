@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1654388790 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\pedidos\fecha.c
+	"fecha.h"
+
+1654388683 c:\users\mateo\github\lab-grupo-2-proyecto-final\pedidos\fecha.h
+	<stdio.h>
+	<time.h>
+
+1654389088 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\pedidos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"fecha.h"
+	"articulos.h"
+
+1654389835 c:\users\mateo\github\lab-grupo-2-proyecto-final\pedidos\articulos.h
+	<stdio.h>
+	<string.h>
+
+1654389696 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\pedidos\articulos.c
+	"articulos.h"
+

@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <time.h>
+#include "fecha.h"
 
-int main(void)
+// Muestra la fecha y hora actuales
+void fechaYHora()
 {
-
     time_t t = time(NULL);
 
     struct tm tiempoLocal = *localtime(&t);
