@@ -1,6 +1,6 @@
 #include "fecha.h"
 
-// Muestra la fecha y hora actuales
+/* Muestra la fecha y hora actuales */
 void fechaYHora()
 {
     time_t t = time(NULL);
