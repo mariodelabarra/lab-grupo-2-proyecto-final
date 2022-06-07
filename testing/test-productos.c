@@ -1,16 +1,18 @@
+#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
 
-typedef struct {
-    int idProducto;             // auto incremental
+typedef struct
+{
+    int idProducto; // auto incremental
     char nombreProducto[20];
     char descripcionProducto[300];
-    int stock;                  // auto decremetal
+    int stock; // auto decremetal
     int unidadesPedidas;
-    float costoPorUnidad;       // establecido por el usuario
-} stProducto;
+    float costoPorUnidad; // establecido por el usuario
+}
+stProducto;
 
 void descripcionProducto();
 void altaProducto();
@@ -29,12 +31,12 @@ void descripcionProducto()
     fflush(stdin);
     condicion = getche();
 
-    if(condicion == 's')
+    if (condicion == 's')
     {
         printf("\nDescripcion del producto:\n");
         system("pause");
     }
-    else if(condicion == 'n')
+    else if (condicion == 'n')
     {
         printf("\nEl producto no tiene descripcion...\n");
         system("pause");
@@ -49,33 +51,19 @@ void descripcionProducto()
 
 void altaProducto()
 {
-    system("cls");
+   system("cls");
 
-    printf("Nombre del producto: ");
-    fflush(stdin);
-    // gets();
+   stProducto producto1;
 
-    descripcionProducto();
+   printf("Nombre del producto: ");
+   fflush(stdin);
+   scanf("%s", producto1.nombreProducto);
+
+   descripcionProducto();
 }
 
-void bajaProducto()
-{
-    // listadoProducto();
-    printf("Id del articulo a eliminar: ");
-    // idProducto = getche();
+void bajaProducto() {}
 
-    // Mensaje de exito o fallo segun cada caso
-}
+void modificacionProducto() {}
 
-void modificacionProducto()
-{
-    // listadoProducto();
-    printf("Id del articulo a modificar: ");
-    // idProducto = getche();
-
-    // Mensaje de exito o fallo segun cada caso
-}
-
-void listadoProducto()
-{
-}
+void listadoProducto() {}
