@@ -80,9 +80,9 @@ void altaPedido()
 }
 
 // void bajaPedido(stPedido a[], int dim) {}
-//
+
 // void modificacionPedido(stPedido a[], int dim) {}
-//
+
 // void consultaPedido(stPedido a[], int dim) {}
-//
+
 // void listadoPedido(stPedido a[], int dim) {}
