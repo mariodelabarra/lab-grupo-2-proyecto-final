@@ -48,3 +48,5 @@ Luego de ejecutar este comando podras ver que vas se va a generar la carpeta ant
   <li><code>git commit -m "mensaje"</code> GIT nos pedirá que dejemos un mensaje para recordar los cambios que hicimos y para ello utilizamos este comando. Además nos ayuda a mover archivos de Staged a Tracked. Esta es una ocasión especial, los archivos han sido guardados o actualizados en el repositorio</li>
   <li><code>git push origin "nombreDeNuestraRama"</code> una vez que ya utilizamos los comandos anteriores ya podremos decirle a GIT que suba los cambios al repositorio remoto (Github), luego deberemos crear el pull request así de esa manera luego podremos hacer un merge de nuestros cambios hacia main.</li>
 </ol>
+
+
