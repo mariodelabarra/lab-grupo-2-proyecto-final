@@ -16,7 +16,7 @@ typedef struct
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;
 
-int altaPedido(stPedido arreglo[], int dim);
+int altaPedido(stPedido arreglo[], int dim, int pos);
 void menu();
 // void bajaPedido(stPedido arreglo[]);
 // void modificacionPedido();
@@ -30,9 +30,9 @@ int main() // Temporal
     return 0;
 }
 
-int altaPedido(stPedido arreglo[], int dim)
+int altaPedido(stPedido arreglo[], int dim, int pos)
 {
-    int opcion, i = 0;
+    int opcion, i = pos;
     char continuar;
     int sumCosto = 0;
 
@@ -104,7 +104,7 @@ int altaPedido(stPedido arreglo[], int dim)
 void menu()
 {
     stPedido listaPedidos[DIM];
-    int validos = 0, opcion;
+    int validos = 0, opcion, i = 0;
 
     do
     {
@@ -121,7 +121,8 @@ void menu()
         switch (opcion)
         {
         case 1:
-            validos = altaPedido(listaPedidos, DIM);
+            validos = altaPedido(listaPedidos, DIM, i);
+            i++;
             break;
         case 2:
             listadoPedido(listaPedidos, validos);
