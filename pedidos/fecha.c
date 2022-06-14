@@ -15,7 +15,7 @@ void fechaYHora()
 
     if (bytesEscritos != 0)
     {
-        printf("Fecha y hora: %s", fechaHora);
+        printf("%s", fechaHora);
     }
     else
     {

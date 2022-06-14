@@ -17,6 +17,7 @@ typedef struct
 } stPedido;
 
 int altaPedido(stPedido arreglo[], int dim);
+void menu();
 // void bajaPedido(stPedido arreglo[]);
 // void modificacionPedido();
 // void consultaPedido();
@@ -24,13 +25,7 @@ void listadoPedido(stPedido arreglo[], int validos);
 
 int main() // Temporal
 {
-    stPedido listaPedidos[DIM];
-    int validos = 0;
-
-    validos = altaPedido(listaPedidos, DIM);
-
-    printf("Pedido luego de carga\n");
-    listadoPedido(listaPedidos, validos);
+    menu();
 
     return 0;
 }
@@ -40,10 +35,9 @@ int altaPedido(stPedido arreglo[], int dim)
     int opcion, i = 0;
     char continuar;
     int sumCosto = 0;
-    int idCli;
 
-    printf("Ingrese su Id: ");
-    scanf("%d", &idCli);
+    printf("\nIngrese su Id: ");
+    scanf("%d", &arreglo[i].idCliente);
 
     do
     {
@@ -93,17 +87,48 @@ int altaPedido(stPedido arreglo[], int dim)
         }
         while (opcion != 0);
 
-        arreglo[i].idCliente = idCli;
         arreglo[i].costoTotal = sumCosto; // Conmbinar con archivos
         arreglo[i].idPedido = i + 1; // Combinar con archivos
 
-        printf("Desea agregar otro pedido? s/n");
+        printf("Desea agregar otro pedido? s/n ");
         fflush(stdin);
         continuar = getche();
 
         i++;
     }
     while(continuar == 's' && i < dim);
+
+    return i;
+}
+
+void menu()
+{
+    stPedido listaPedidos[DIM];
+    int validos = 0, opcion;
+
+    do
+    {
+        system("cls");
+        printf(
+            "MENU TEMPORAL\n\n"
+            "[1] Agregar\n"
+            "[2] Listar\n"
+            "[0] Salir\n"
+        );
+        printf("\nElija una opcion (0 para salir): ");
+        scanf("%d", &opcion);
+
+        switch (opcion)
+        {
+        case 1:
+            validos = altaPedido(listaPedidos, DIM);
+            break;
+        case 2:
+            listadoPedido(listaPedidos, validos);
+            break;
+        }
+    }
+    while (opcion != 0);
 }
 
 // void bajaPedido(stPedido arreglo[])
@@ -141,8 +166,21 @@ void listadoPedido(stPedido arreglo[], int validos)
 {
     int i = 0;
 
+    system("cls");
+    printf("LISTADO\n\n");
+
     for(i = 0; i < validos; i++)
     {
-        printf("%d", arreglo[i].idPedido);
+        if(arreglo[i].pedidoAnulado != 1)
+        {
+            printf("Cliente id: %d ", arreglo[i].idCliente);
+            printf("| %d ", arreglo[i].idPedido);
+            printf("$%.2f ", arreglo[i].costoTotal);
+            fechaYHora();
+            printf("\n");
+        }
     }
+    printf("\n");
+
+    system("pause");
 }
