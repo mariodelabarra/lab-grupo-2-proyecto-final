@@ -31,14 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="articulos.c">
+		<Unit filename="files/articulos/articulos.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="articulos.h" />
-		<Unit filename="fecha.c">
+		<Unit filename="files/articulos/articulos.h" />
+		<Unit filename="files/common/fecha.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="fecha.h" />
+		<Unit filename="files/common/fecha.h" />
+		<Unit filename="files/common/mensajes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files/common/mensajes.h" />
 		<Unit filename="files/pedidos/archivosPedidos.c">
 			<Option compilerVar="CC" />
 		</Unit>

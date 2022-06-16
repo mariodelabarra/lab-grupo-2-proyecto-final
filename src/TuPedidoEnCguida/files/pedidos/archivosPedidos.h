@@ -4,7 +4,7 @@
 #include "pedidos.h"
 
 void cargarPedidosArchivo(stPedido arregloPedidos[], int dim, char rutaArthivo[]);
-void mostrarArchivoPedidos(char rutaArchivo[]);
+void obtenerPedidosDeArchivo(char rutaArchivo[], stPedido arregloPedidos[], int dim);
 
 
 #endif // ARCHIVOSPEDIDOS_H_INCLUDED

@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1655336936 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
+	"pedidos.h"
+
+1655336864 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
+
+1655340117 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.c
+	"fecha.h"
+
+1655339356 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.h
+	<stdio.h>
+	<time.h>
+
+1655340660 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1655339097 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.c
+	<stdio.h>
+	<stdlib.h>
+	"pedidos.h"
+	"archivosPedidos.h"
+
+1655337021 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.h
+	"pedidos.h"
+
+1654900971 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.c
+	"articulos.h"
+
+1655339089 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1655340751 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
+
+1655340748 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.c
+	"mensajes.h"
+

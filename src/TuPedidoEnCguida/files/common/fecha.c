@@ -1,23 +1,17 @@
 #include "fecha.h"
 
 /* Muestra la fecha y hora actuales */
-void fechaYHora()
+void fechaYHora(char* fechaHora)
 {
     time_t t = time(NULL);
 
     struct tm tiempoLocal = *localtime(&t);
 
-    char fechaHora[70];
-
     char *formato = "%d-%m-%Y %H:%M";
 
-    int bytesEscritos = strftime(fechaHora, sizeof fechaHora, formato, &tiempoLocal);
+    int bytesEscritos = strftime(fechaHora, sizeof(char)*16, formato, &tiempoLocal);
 
-    if (bytesEscritos != 0)
-    {
-        printf("Fecha y hora: %s", fechaHora);
-    }
-    else
+    if (bytesEscritos == 0)
     {
         printf("Error formateando fecha");
     }
