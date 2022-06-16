@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1655405885 source:c:\users\hp\desktop\codeblocks\menuuu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+	"menuPrincipal.h"
+	"libreriaMenuClienteAdministrador.h"
+	"menuAltayBaja.h"
+	"menuEditaryEditarDom.h"
+	"menuConsultaCliente.h"
+	"menuConsultaAdmin.h"
+	"menuPedido.h"
+	"menuBajaUsuario.h"
+
+1655383914 c:\users\hp\desktop\codeblocks\menuuu\menuprincipal.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655341149 c:\users\hp\desktop\codeblocks\menuuu\libreriamenuclienteadministrador.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655406012 c:\users\hp\desktop\codeblocks\menuuu\menualtaybaja.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655405944 c:\users\hp\desktop\codeblocks\menuuu\menueditaryeditardom.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655405344 c:\users\hp\desktop\codeblocks\menuuu\menuconsultacliente.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655384054 c:\users\hp\desktop\codeblocks\menuuu\menuconsultaadmin.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<time.h>
+
+1655405344 c:\users\hp\desktop\codeblocks\menuuu\menupedido.h
+
+1655405885 c:\users\hp\desktop\codeblocks\menuuu\menubajausuario.h
+
