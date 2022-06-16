@@ -17,17 +17,68 @@ typedef struct
 } stPedido;
 
 int altaPedido(stPedido arreglo[], int dim, int pos);
-void menu();
-// void bajaPedido(stPedido arreglo[]);
-// void modificacionPedido();
-// void consultaPedido();
+void menu(stPedido arrelgo[], int dim);
+void bajaPedido(stPedido arreglo[], int validos);
+void modificacionPedido(stPedido arreglo[], int validos);
+void consultaPedido(stPedido arreglo[], int validos);
 void listadoPedido(stPedido arreglo[], int validos);
 
 int main() // Temporal
 {
-    menu();
+    stPedido listaPedidos[DIM];
+
+    menu(listaPedidos, DIM);
 
     return 0;
+}
+
+void menu(stPedido arreglo[], int dim)
+{
+    int validos = 0, opcion, i = 0;
+
+    do
+    {
+        system("cls");
+        printf(
+            "MENU TEMPORAL\n\n"
+            "[1] Agregar\n"
+            "[2] Anular\n"
+            "[3] Modificar\n"
+            "[4] Buscar\n"
+            "[5] Listar\n"
+            "[0] Salir\n"
+        );
+        printf("\nElija una opcion (0 para salir): ");
+        scanf("%d", &opcion);
+
+        switch (opcion)
+        {
+        case 1:
+            validos = altaPedido(arreglo, dim, i);
+            i++;
+            break;
+        case 2:
+            bajaPedido(arreglo, validos);
+            break;
+        case 3:
+            modificacionPedido(arreglo, validos);
+            break;
+        case 4:
+            consultaPedido(arreglo, validos);
+            break;
+        case 5:
+            listadoPedido(arreglo, validos);
+            break;
+        case 0:
+            exit(0);
+            break;
+        default:
+            printf("\nOpcion invalida ingrese nuevamente...\n");
+            system("pause");
+            break;
+        }
+    }
+    while (opcion != 0);
 }
 
 int altaPedido(stPedido arreglo[], int dim, int pos)
@@ -83,6 +134,12 @@ int altaPedido(stPedido arreglo[], int dim, int pos)
             case 10:
                 sumCosto += precioPorId(9);
                 break;
+            case 0:
+                break;
+            default:
+                printf("\nOpcion invalida ingrese nuevamente...\n");
+                system("pause");
+                break;
             }
         }
         while (opcion != 0);
@@ -101,71 +158,57 @@ int altaPedido(stPedido arreglo[], int dim, int pos)
     return i;
 }
 
-void menu()
+void bajaPedido(stPedido arreglo[], int validos)
 {
-    stPedido listaPedidos[DIM];
-    int validos = 0, opcion, i = 0;
+    int idPedido;
+    char continuar;
+    int idCli;
+
+    printf("Ingrese su Id: ");
+    scanf("%d", &idCli);
 
     do
     {
         system("cls");
-        printf(
-            "MENU TEMPORAL\n\n"
-            "[1] Agregar\n"
-            "[2] Listar\n"
-            "[0] Salir\n"
-        );
-        printf("\nElija una opcion (0 para salir): ");
-        scanf("%d", &opcion);
 
-        switch (opcion)
-        {
-        case 1:
-            validos = altaPedido(listaPedidos, DIM, i);
-            i++;
-            break;
-        case 2:
-            listadoPedido(listaPedidos, validos);
-            break;
-        }
+        printf("ANULAR\n\n");
+
+        listadoPedido(arreglo, validos);
+
+        printf("\nId del pedido a anular (0 para salir): ");
+        scanf("%d", &idPedido);
+
+        arreglo[idPedido].pedidoAnulado = 1;
+
+        printf("Desea anular otro pedido? s/n ");
+        fflush(stdin);
+        continuar = getche();
     }
-    while (opcion != 0);
+    while(continuar == 's');
 }
 
-// void bajaPedido(stPedido arreglo[])
-// {
-//     int idPedido;
-//     char continuar;
-//     int idCli;
-//
-//     printf("Ingrese su Id: ");
-//     scanf("%d", &idCli);
-//
-//     do
-//     {
-//         system("cls");
-//
-//         printf("ANULAR\n\n");
-//
-//         printf("\nId del pedido a anular (0 para salir): ");
-//         scanf("%d", &idPedido);
-//
-//         arreglo[idPedido].pedidoAnulado = 1;
-//
-//         printf("Desea anular otro pedido? s/n");
-//         fflush(stdin);
-//         continuar = getche();
-//     }
-//     while(continuar == 's');
-// }
+void modificacionPedido(stPedido arreglo[], int validos)
+{
+    system("cls");
+    printf("MODIFICAR\n\n");
 
-// void modificacionPedido(stPedido a[], int dim) {}
+    printf("\n");
+    system("pause");
+}
 
-// void consultaPedido(stPedido a[], int dim) {}
+void consultaPedido(stPedido arreglo[], int validos)
+{
+    system("cls");
+    printf("BUSCAR\n\n");
+
+    printf("\n");
+    system("pause");
+}
 
 void listadoPedido(stPedido arreglo[], int validos)
 {
     int i = 0;
+    char fecha[16];
 
     system("cls");
     printf("LISTADO\n\n");
@@ -177,7 +220,16 @@ void listadoPedido(stPedido arreglo[], int validos)
             printf("Cliente id: %d ", arreglo[i].idCliente);
             printf("| %d ", arreglo[i].idPedido);
             printf("$%.2f ", arreglo[i].costoTotal);
-            fechaYHora();
+            mostrarFecha(fecha);
+            printf("\n");
+        }
+        else
+        {
+            printf("Cliente id: %d ", arreglo[i].idCliente);
+            printf("| %d ", arreglo[i].idPedido);
+            printf("$%.2f ", arreglo[i].costoTotal);
+            mostrarFecha(fecha);
+            printf(" PEDIDO ANULADO ");
             printf("\n");
         }
     }
