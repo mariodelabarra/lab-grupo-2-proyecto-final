@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1655422966 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
+1655428605 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
 	"pedidos.h"
 
-1655423250 c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
+1655427089 c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
 	"../articulos/articulos.h"
 	"../common/fecha.h"
 	<conio.h>
@@ -18,7 +18,7 @@
 	<stdio.h>
 	<time.h>
 
-1655423363 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
+1655427393 source:c:\users\mateo\github\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
 	"files/pedidos/pedidos.h"
 	<stdio.h>
 	<stdlib.h>

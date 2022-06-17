@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define DIM 100
-
 typedef struct
 {
     int idPedido;      // auto incremental
@@ -16,8 +14,8 @@ typedef struct
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;
 
-int altaPedido(stPedido arreglo[], int dim, int pos);
-void menu(stPedido arrelgo[], int dim);
+int altaPedido(stPedido arreglo[], int *dim, int pos);
+void menu(stPedido arrelgo[], int *dim);
 void bajaPedido(stPedido arreglo[], int validos);
 void modificacionPedido(stPedido arreglo[], int validos);
 void consultaPedido(stPedido arreglo[], int validos);

@@ -4,9 +4,11 @@
 
 int main()
 {
-    stPedido listaPedidos[DIM];
+    int dim = 0; // validos archivo
 
-    menu(listaPedidos, DIM);
+    stPedido listaPedidos[dim];
+
+    menu(listaPedidos, &dim);
 
     return 0;
 }
