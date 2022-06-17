@@ -4,4 +4,6 @@
 void printfError(char mensaje[]);
 void printfWarning(char mensaje[]);
 
+void tituloPrincipal();
+
 #endif // MENSAJES_H_INCLUDED

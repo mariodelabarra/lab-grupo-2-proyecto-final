@@ -1,6 +1,8 @@
 #ifndef PEDIDOS_H_INCLUDED
 #define PEDIDOS_H_INCLUDED
 
+#define PEDIDO_ANULADO 0
+
 typedef struct
 {
     int idPedido;      // auto incremental
