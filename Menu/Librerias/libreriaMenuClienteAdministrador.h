@@ -13,8 +13,7 @@ void menuCliente(){
         printf("\n=======================================================================================================================");
         printf("\n<1> ALTA");
         printf("\n<2> BAJA");
-        printf("\n<3> VER PEDIDOS");
-        printf("\n<4> HACER UN PEDIDO");
+        printf("\n<3> HACER UN PEDIDO");
         printf("\n<0> REGRESAR\n");
 
         printf("\nINGRESE UNA OPCION: ");
@@ -30,11 +29,7 @@ void menuCliente(){
             break;
 
         case 3:
-            menuEditar();
-            break;
-
-        case 4:
-            menuConsultaCliente();
+            menuPedido();
             break;
 
         case 0:

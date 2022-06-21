@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
-#include "menuPrincipal.h"
-#include "libreriaMenuClienteAdministrador.h"
-#include "menuAltayBaja.h"
-#include "menuEditaryEditarDom.h"
-#include "menuConsultaCliente.h"
-#include "menuConsultaAdmin.h"
-#include "menuPedido.h"
-#include "menuBajaUsuario.h"
+#include "Librerias/libreriaMenuClienteAdministrador.h"
+#include "Librerias/menuAltayBaja.h"
+#include "Librerias/menuBajaUsuario.h"
+#include "Librerias/menuConsultaAdmin.h"
+#include "Librerias/menuConsultaCliente.h"
+#include "Librerias/menuEditaryEditarDom.h"
+#include "Librerias/menuPedido.h"
+#include "Librerias/menuPrincipal.h"
+
 
 
 

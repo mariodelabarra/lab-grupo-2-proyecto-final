@@ -31,15 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="libreriaMenuClienteAdministrador.h" />
+		<Unit filename="Librerias/libreriaMenuClienteAdministrador.h" />
+		<Unit filename="Librerias/menuAltayBaja.h" />
+		<Unit filename="Librerias/menuBajaUsuario.h" />
+		<Unit filename="Librerias/menuConsultaAdmin.h" />
+		<Unit filename="Librerias/menuConsultaCliente.h" />
+		<Unit filename="Librerias/menuEditaryEditarDom.h" />
+		<Unit filename="Librerias/menuPedido.h" />
+		<Unit filename="Librerias/menuPrincipal.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menuAltayBaja.h" />
-		<Unit filename="menuConsultaAdmin.h" />
-		<Unit filename="menuConsultaCliente.h" />
-		<Unit filename="menuEditaryEditarDom.h" />
-		<Unit filename="menuPrincipal.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
