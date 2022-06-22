@@ -53,7 +53,7 @@ stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos)
     {
         printfError("Ocurrio un error al querer abrir el archivo.");
 
-        *cantPedidos = 0;
+        *cantPedidos = 1;
         arregloPedidos = NULL;
     }
 
@@ -66,7 +66,7 @@ int insertarPedido(char rutaArchivo[], stPedido pedido)
 	int insercion = 0;
 
 	/* Abre el archivo para agregar datos al final */
-	archivoPedidos = fopen(rutaArchivo, MODO_ANADIR);	/* Añade datos al final. Si el archivo no existe, es creado */
+	archivoPedidos = fopen(rutaArchivo, MODO_ANADIR);  /* Aï¿½ade datos al final. Si el archivo no existe, es creado */
 
 	if(archivoPedidos != NULL)
     {
@@ -82,9 +82,9 @@ int insertarPedido(char rutaArchivo[], stPedido pedido)
 	return insercion;
 }
 
-/*  Se busca el registro que se quiere borrar. Cuando se encuentra, se sitúa en esa posición mediante la
-    función fseek y luego se modifica el campo clave de ese registro mediante algún valor de anulado, eso se logra
-    con fwrite. Hasta allí se ha logrado una eliminación LÓGICA. Porque el registro sigue ocupando espacio en el archivo físico */
+/*  Se busca el registro que se quiere borrar. Cuando se encuentra, se sitï¿½a en esa posiciï¿½n mediante la
+    funciï¿½n fseek y luego se modifica el campo clave de ese registro mediante algï¿½n valor de anulado, eso se logra
+    con fwrite. Hasta allï¿½ se ha logrado una eliminaciï¿½n Lï¿½GICA. Porque el registro sigue ocupando espacio en el archivo fï¿½sico */
 int anularPedido(char rutaArchivo[], int idPedido, int idCliente)
 {
 	stPedido pedidoAux;

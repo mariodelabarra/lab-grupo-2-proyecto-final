@@ -62,7 +62,7 @@ int insertarCliente(char rutaArchivo[], stCliente cliente)
 	int insercion = 0;
 
 	/* Abre el archivo para agregar datos al final */
-	archivoClientes = fopen(rutaArchivo, MODO_ANADIR);	/* Añade datos al final. Si el archivo no existe, es creado */
+	archivoClientes = fopen(rutaArchivo, MODO_ANADIR);	/* AÃ±ade datos al final. Si el archivo no existe, es creado */
 
 	if(archivoClientes != NULL)
     {

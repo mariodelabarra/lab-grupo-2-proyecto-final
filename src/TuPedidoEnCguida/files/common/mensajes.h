@@ -3,6 +3,7 @@
 
 void printfError(char mensaje[]);
 void printfWarning(char mensaje[]);
+void printfSucces(char mensaje[]);
 
 void tituloPrincipal();
 
