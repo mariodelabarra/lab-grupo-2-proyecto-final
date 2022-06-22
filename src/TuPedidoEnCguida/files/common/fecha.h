@@ -1,4 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-void fechaYHora(char* fechaHora);
+#define DIM_FECHA 18
+
+void fechaYHora(char fechaHora[DIM_FECHA]);
+void mostrarFecha(char fechaHora[DIM_FECHA]);

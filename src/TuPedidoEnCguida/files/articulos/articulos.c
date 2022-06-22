@@ -50,7 +50,7 @@ int precioPorId(int idArticulo)
     return precio;
 }
 
-/* Consulta la cantidad de artuculos y lo retorna */
+/* Consulta la cantidad de articulos y lo retorna */
 int cantArticulos(int idArticulo)
 {
     int cantidad = 0;
