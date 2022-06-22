@@ -10,6 +10,11 @@ void printfWarning(char mensaje[])
     printf("\nWARN: %s\n\n", mensaje);
 }
 
+void printfSucces(char mensaje[])
+{
+    printf("\nSUCC: %s\n\n", mensaje);
+}
+
 void tituloPrincipal()
 {
 	int i;

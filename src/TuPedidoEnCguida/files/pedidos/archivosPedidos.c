@@ -53,7 +53,7 @@ stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos)
     {
         printfError("Ocurrio un error al querer abrir el archivo.");
 
-        *cantPedidos = 0;
+        *cantPedidos = 1;
         arregloPedidos = NULL;
     }
 
