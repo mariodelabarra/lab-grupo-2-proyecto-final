@@ -1,4 +1,3 @@
-#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +12,6 @@ typedef struct
 } stPedido;
 
 int altaPedido(stPedido arreglo[], int *dim, int pos);
-void menu(stPedido arrelgo[], int *dim);
 void bajaPedido(stPedido arreglo[], int validos);
 void modificacionPedido(stPedido arreglo[], int validos);
 void consultaPedido(stPedido arreglo[], int validos);

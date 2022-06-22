@@ -1,58 +1,8 @@
 #include "pedidos.h"
 
-void menu(stPedido arreglo[], int * dim)
-{
-    int validos = 0, opcion, i = 0;
-
-    do
-    {
-        system("cls");
-        printf(
-            "MENU TEMPORAL\n\n"
-            "[1] Agregar\n"
-            "[2] Anular\n"
-            "[3] Modificar\n"
-            "[4] Buscar\n"
-            "[5] Listar\n"
-            "[0] Salir\n"
-        );
-        printf("\nElija una opcion (0 para salir): ");
-        scanf("%d", &opcion);
-
-        switch (opcion)
-        {
-        case 1:
-            validos = altaPedido(arreglo, dim, i);
-            i++;
-            break;
-        case 2:
-            bajaPedido(arreglo, validos);
-            break;
-        case 3:
-            modificacionPedido(arreglo, validos);
-            break;
-        case 4:
-            consultaPedido(arreglo, validos);
-            break;
-        case 5:
-            listadoPedido(arreglo, validos);
-            break;
-        case 0:
-            exit(0);
-            break;
-        default:
-            printf("\nOpcion invalida ingrese nuevamente...\n");
-            system("pause");
-            break;
-        }
-    }
-    while (opcion != 0);
-}
-
-int altaPedido(stPedido arreglo[], int * dim, int pos)
+int altaPedido(stPedido arregloPedidos[], int * dim, int pos)
 {
     int opcion, i = pos;
-    char continuar;
     int sumCosto = 0;
     stPedido aux;
 
@@ -61,82 +11,78 @@ int altaPedido(stPedido arreglo[], int * dim, int pos)
 
     do
     {
-        do
+        system("cls");
+
+        printf("AGREGAR\n\n");
+        listadoArticulos();
+
+        printf("\nId del articulo a agregar (0 para salir): ");
+        scanf("%2d", &opcion);
+
+        if(opcion > 0 && opcion <= 10)
         {
-            system("cls");
-
-            printf("AGREGAR\n\n");
-            listadoArticulos();
-
-            printf("\nId del articulo a agregar (0 para salir): ");
-            scanf("%2d", &opcion);
-
-            if(opcion > 0 && opcion <= 10)
-            {
-                sumCosto += precioPorId(opcion - 1);
-            }
-            else
-            {
-                printf("\nOpcion invalida ingrese nuevamente...\n");
-                system("pause");
-            }
+            sumCosto += precioPorId(opcion - 1);
         }
-        while (opcion != 0);
-
-        aux.costoTotal = sumCosto;
-        aux.idPedido = i + 1;
-        aux.pedidoAnulado = 0;
-
-        arreglo[i] = aux;
-
-        printf("Desea agregar otro pedido? s/n ");
-        fflush(stdin);
-        continuar = getche();
-
-        sumCosto = 0;
-
-        i++;
-
-        dim = dim + 1;
+        else
+        {
+            printf("\nOpcion invalida ingrese nuevamente...\n");
+            system("pause");
+        }
     }
-    while(continuar == 's');
+    while (opcion != 0);
+
+    aux.costoTotal = sumCosto;
+    aux.idPedido = i;
+    aux.pedidoAnulado = 0;
+
+    arregloPedidos[i] = aux;
+
+    sumCosto = 0;
+
+    i++;
+
+    dim = dim + 1;
 
     return i;
 }
 
-void bajaPedido(stPedido arreglo[], int validos)
+void bajaPedido(stPedido arregloPedidos[], int validos)
 {
     int idPedido;
-    char continuar;
     int idCli;
 
     printf("Ingrese su Id: ");
     scanf("%d", &idCli);
 
-    do
-    {
-        system("cls");
+    system("cls");
 
-        printf("ANULAR\n\n");
+    printf("ANULAR\n\n");
 
-        listadoPedido(arreglo, validos);
+    listadoPedido(arregloPedidos, validos);
 
-        printf("\nId del pedido a anular (0 para salir): ");
-        scanf("%d", &idPedido);
+    printf("\nId del pedido a anular: ");
+    scanf("%d", &idPedido);
 
-        arreglo[idPedido - 1].pedidoAnulado = 1;
-
-        printf("Desea anular otro pedido? s/n ");
-        fflush(stdin);
-        continuar = getche();
-    }
-    while(continuar == 's');
+    arregloPedidos[idPedido - 1].pedidoAnulado = 1;
 }
 
-void modificacionPedido(stPedido arreglo[], int validos)
+void modificacionPedido(stPedido arregloPedidos[], int validos)
 {
+    int idPedido;
+    int idCli;
+
+    printf("Ingrese su Id: ");
+    scanf("%d", &idCli);
+
     system("cls");
     printf("MODIFICAR\n\n");
+
+    listadoPedido(arregloPedidos, validos);
+
+    printf("\nId del pedido a modificar: ");
+    scanf("%d", &idPedido);
+
+    arregloPedidos[idPedido].costoTotal = ;
 
     printf("\n");
     system("pause");
@@ -163,8 +109,7 @@ void listadoPedido(stPedido arreglo[], int validos)
     {
         if(arreglo[i].pedidoAnulado != 1)
         {
-            printf("Cliente id: %d ", arreglo[i].idCliente);
-            printf("| %d ", arreglo[i].idPedido);
+            printf("%d ", arreglo[i].idPedido);
             printf("$%.2f ", arreglo[i].costoTotal);
             mostrarFecha(fecha);
             printf("\n");
