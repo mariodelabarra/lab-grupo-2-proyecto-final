@@ -39,6 +39,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="files/common/fecha.h" />
+		<Unit filename="files/common/mensajes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files/common/mensajes.h" />
+		<Unit filename="files/pedidos/archivosPedidos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files/pedidos/archivosPedidos.h" />
 		<Unit filename="files/pedidos/pedidos.c">
 			<Option compilerVar="CC" />
 		</Unit>
