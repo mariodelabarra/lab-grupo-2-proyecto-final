@@ -5,13 +5,15 @@
 #include "pedidos.h"
 #include "archivosPedidos.h"
 
+#define MODO_LECTURA "rb"
+#define MODO_ANADIR "ab"
 #define MODO_LEC_ESCRIT "r+b"
 
 void cargarPedidosArchivo(char rutaArchivo[], stPedido arregloPedidos[], int dim)
 {
     FILE * archivo = NULL;
 
-    archivo = fopen(rutaArchivo, "ab");
+    archivo = fopen(rutaArchivo, MODO_ANADIR);
     if(archivo != NULL)
     {
         fwrite(arregloPedidos, sizeof(stPedido), dim, archivo);
@@ -30,7 +32,7 @@ stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos)
     stPedido *arregloPedidos;
 
     FILE * archivoPedidos = NULL;
-    archivoPedidos = fopen(rutaArchivo, "rb");
+    archivoPedidos = fopen(rutaArchivo, MODO_LECTURA);
 
     if(archivoPedidos != NULL)
     {
@@ -64,11 +66,11 @@ int insertarPedido(char rutaArchivo[], stPedido pedido)
 	int insercion = 0;
 
 	/* Abre el archivo para agregar datos al final */
-	archivoPedidos = fopen(rutaArchivo, "ab");	/* A�ade datos al final. Si el archivo no existe, es creado */
+	archivoPedidos = fopen(rutaArchivo, MODO_ANADIR);  /* A�ade datos al final. Si el archivo no existe, es creado */
 
 	if(archivoPedidos != NULL)
     {
-        fwrite(&producto, sizeof(producto), 1, archivo);
+        fwrite(&pedido, sizeof(pedido), 1, archivo);
 		insercion = 1;
         fclose(archivo);
     }
@@ -149,6 +151,5 @@ int modificarProducto(char rutaArchivo[], stPedido pedidoModificado)
         printfError("Ocurrio un error al querer abrir el archivo.");
     }
 
-	/* Cierra el archivo */
 	return modifica;
 }
