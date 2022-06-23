@@ -1,3 +1,6 @@
+#ifndef PEDIDOS_H_INCLUDED
+#define PEDIDOS_H_INCLUDED
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,9 +14,11 @@ typedef struct
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;
 
-int altaPedido(stPedido arregloPedidos[], int *dim, int pos, int idCliente);
+void altaPedido(stPedido arregloPedidos[], int *dim, int idCliente);
 void bajaPedido(stPedido arregloPedidos[], int validos, int idCliente);
 void modificacionPedido(stPedido arregloPedidos[], int validos, int idCliente);
-// void consultaPedido(stPedido arreglo[], int validos);
+int consultaPedido(stPedido arregloPedidos[], int validos, int idCliente, int idPedido);
 void listadoPedido(stPedido arregloPedidos[], int validos, int idCliente);
 int elegirPedido(stPedido arregloPedidos[], int validos, int idCliente);
+
+#endif // PEDIDOS_H_INCLUDED
