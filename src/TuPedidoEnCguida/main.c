@@ -24,9 +24,11 @@ void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, 
 
     do
     {
+        system("cls");
+        tituloPrincipal();
         printf
             (
-                "[1]Pedidos\n"
+                "\n\n[1]Pedidos\n"
                 "[0]Salir\n"
             );
         printf("Ingrese una opcion: ");
@@ -59,6 +61,7 @@ void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int 
 
     do
     {
+        system("cls");
         printf
             (
                 "[1]Alta\n"
@@ -86,7 +89,6 @@ void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int 
                 listadoPedido(arregloPedidos, *dim, idCliente);
                 break;
             case 0:
-                printf("Adios!");
                 break;
             default:
                 printfError("Opcion invalida...");
