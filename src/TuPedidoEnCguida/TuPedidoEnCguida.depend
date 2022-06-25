@@ -11,7 +11,7 @@
 	<stdio.h>
 	<time.h>
 
-1656116891 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
+1656188389 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -35,23 +35,23 @@
 	<stdio.h>
 	<string.h>
 
-1656115856 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
+1656187166 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
 
-1656115937 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.c
+1656187953 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.c
 	"mensajes.h"
 
-1656109552 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.c
+1656188595 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.c
 	<stdlib.h>
 	<stdio.h>
 	"../common/mensajes.h"
 	"archivosClientes.h"
 
-1656108964 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.h
+1656188585 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.h
 	"cliente.h"
 
-1656117513 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
+1656188123 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
 
-1656117866 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.c
+1656188636 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -71,7 +71,7 @@
 
 1656116881 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.h
 
-1656117441 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.c
+1656186585 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.c
 	<stdio.h>
 	<stdlib.h>
 	"commonClientes.h"

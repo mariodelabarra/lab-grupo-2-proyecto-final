@@ -4,6 +4,7 @@
 void printfError(char mensaje[]);
 void printfWarning(char mensaje[]);
 
+void barraTitulos();
 void tituloPrincipal();
 void tituloSecciones(char * titulo);
 

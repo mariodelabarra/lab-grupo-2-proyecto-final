@@ -10,14 +10,19 @@ void printfWarning(char mensaje[])
     printf("\nWARN: %s\n\n", mensaje);
 }
 
+void barraTitulos()
+{
+    puts("\n ==========================================================================================");
+}
+
 void tituloPrincipal()
 {
 	int i;
-	printf("\n     ======================================================================\n");
+	barraTitulos();
 	printf("\t\t\t     HaC Pedidos\n");
 	printf("\t   Creacion, reportes, eliminacion, busqueda y actualizacion\n");
 	printf("\t\t    Copyright 2022 | Laboratorio I\n");
-	printf("     ======================================================================\n");
+	barraTitulos();
 
 	i = 0;
 	putchar('\n');
@@ -28,7 +33,7 @@ void tituloPrincipal()
 
 void tituloSecciones(char * titulo)
 {
-    printf(" ------------------------------------------------------------------------------\n");
-    printf("\n\t\t    ==> %s <==\n", titulo);
-    printf(" ------------------------------------------------------------------------------\n");
+    barraTitulos();
+    printf(" \t\t\t    ==> %s <==", titulo);
+    barraTitulos();
 }

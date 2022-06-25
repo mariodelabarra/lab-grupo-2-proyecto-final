@@ -26,7 +26,7 @@ void altaCliente(arrClientes *arreglo);
 void bajaCliente(arrClientes *arreglo, int idCliente);
 void modificacionCliente(arrClientes *arreglo, int idCliente);
 void consultaCliente(arrClientes *arreglo, int idCliente);
-void listadoCliente(arrClientes *arreglo);
+void listadoClientes(arrClientes *arregloClientes, char *tituloListado);
 
 int buscarPosicionCliente(arrClientes arregloClientes, int idCliente);
 stCliente leerCamposAEditar(stCliente cliente);

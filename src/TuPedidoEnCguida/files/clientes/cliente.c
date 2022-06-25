@@ -58,53 +58,39 @@ void altaCliente(arrClientes *arregloClientes)
 
 }
 
-//void mostrarClienteCargado(arrClientes *arregloClientes)
-//{
-//    for(int i = 0; i<=arregloClientes->numClientes; i++)
-//    {
-//        puts("\n");
-//        printf("\n idCliente: %d", arregloClientes->clientes[i].idCliente);
-//        printf("\n nombre: %s", arregloClientes->clientes[i].nombre);
-//        printf("\n apellido: %s", arregloClientes->clientes[i].apellido);
-//        printf("\n userName: %s", arregloClientes->clientes[i].userName);
-//        printf("\n password: %s", arregloClientes->clientes[i].password);
-//        printf("\n mail: %s", arregloClientes->clientes[i].mail);
-//        printf("\n genero: %c", arregloClientes->clientes[i].genero);
-//        printf("\n rol: %d", arregloClientes->clientes[i].rol);
-//    }
-//}
-
 void bajaCliente(arrClientes *arregloClientes, int idCliente)
 {
 
     system("cls");
+    listadoClientes(arregloClientes, "ANULACION DE CLIENTES");
 
-    printf("ANULAR\n\n");
-
-    listadoCliente(arregloClientes);
-
-    printf("\nId del Cliente a anular: ");
+    printf("\nSeleccione por id al cliente que desea anular: ");
     scanf("%d", &idCliente);
 
-    arregloClientes->clientes[idCliente].activo = 1;
+    int desactivar = desactivarCliente(ARCHIVO_CLIENTES, idCliente);
+
+    if(desactivar == 1)
+    {
+        arregloClientes->clientes[idCliente].activo = 1;
+        puts("\n\n ! Archivo modificado con exito. !");
+    }
+    else
+    {
+        printfError("Ha ocurrido un error al intentar desactivar el cliente");
+    }
 }
 
 void modificacionCliente(arrClientes *arregloClientes, int idCliente)
 {
     int opcion = 0, pos = 0;
-    system("cls");
-    printf("MODIFICAR\n\n");
 
-    listadoCliente(arregloClientes);
+    listadoClientes(arregloClientes, "LISTADO DE CLIENTS PARA MODIFICAR");
 
-    printf("\nId del Cliente a modificar: ");
+    printf("\nSeleccione por id al cliente que desea modificar: ");
     scanf("%d", &idCliente);
 
     pos = buscarPosicionCliente(*arregloClientes, idCliente);
-
     arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
-
-    listadoCliente(arregloClientes);
 
     int modificado = modificarCliente(ARCHIVO_CLIENTES, arregloClientes->clientes[pos]);
 
@@ -114,7 +100,7 @@ void modificacionCliente(arrClientes *arregloClientes, int idCliente)
     }
     else
     {
-        printfError("Ha ocurrido un error al intentar modificar el archivo");
+        printfError("Ha ocurrido un error al intentar modificar el cliente");
     }
 
     printf("\n");
@@ -130,35 +116,40 @@ void consultaCliente(arrClientes *arregloClientes, int idCliente)
     system("pause");
 }
 
-void listadoCliente(arrClientes *arregloClientes)
+void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
 {
-    int i = 0, cont = 0;
+    int i = 0, clientesAnulados = 0;
 
-    system("cls");
-
-    printf("\n\t\t    ==> LISTADO DE CLIENTES REGISTRADOS <==\n");
-    printf(" ------------------------------------------------------------------------------\n");
-    printf("%8s\t%8s%15s%20s\n", "IDCLIENTE", "NOMBRE", "APELLIDO", "USERNAME");
-    printf(" ------------------------------------------------------------------------------\n");
+    tituloSecciones(tituloListado);
+    printf("%8s\t%8s%15s%20s%20s", "IDCLIENTE", "NOMBRE", "APELLIDO", "USERNAME", "MAIL");
+    barraTitulos();
 
     for(i = 0; i < arregloClientes->numClientes; i++)
     {
         if(arregloClientes->clientes[i].activo != 1)
         {
-            printf("\n%8d\t%8s\t%8s\t%8s", arregloClientes->clientes[i].idCliente, arregloClientes->clientes[i].nombre, arregloClientes->clientes[i].apellido, arregloClientes->clientes[i].userName);
+            printf("\n%8d\t%8s\t%8s\t%10s\t  %-20.20s", arregloClientes->clientes[i].idCliente, arregloClientes->clientes[i].nombre,
+                   arregloClientes->clientes[i].apellido,
+                   arregloClientes->clientes[i].userName,
+                   arregloClientes->clientes[i].mail
+                   );
         }
         else
         {
-            cont++;
+            clientesAnulados++;
         }
     }
-
-    puts("\n\n ------------------------------------------------------------------------------\n");
-    printf("\t\t\tClientes anulados: %d", cont);
-    puts("\n\n ------------------------------------------------------------------------------\n");
-    printf("\n\n");
-
-    system("pause");
+    puts("\n");
+    barraTitulos();
+    if(clientesAnulados == 0)
+    {
+        printf("\t\t\tNo hay clientes anulados", clientesAnulados);
+    }
+    else
+    {
+        printf("\t\t\tClientes anulados: %d", clientesAnulados);
+    }
+    barraTitulos();
 }
 
 stCliente leerCamposAEditar(stCliente cliente)
@@ -184,16 +175,16 @@ stCliente leerCamposAEditar(stCliente cliente)
                 strcpy(cliente.mail, leerStringCampoEditable(2, "Mail", cliente.mail));
                 break;
             case 4:
-                printf(" ------------------------------------------------------------------------------\n");
+                printf(" ==============================================================================\n");
                 printf("\n\n 1-   Genero: %c", cliente.genero);
                 cliente.genero = leerGenero();
-                printf(" ------------------------------------------------------------------------------\n");
+                printf(" ==============================================================================\n");
                 break;
             case 5:
-                printf(" ------------------------------------------------------------------------------\n");
+                printf(" ==============================================================================\n");
                 printf("\n\n 1-   Rol: %d", cliente.rol);
                 cliente.rol = leerRol();
-                printf(" ------------------------------------------------------------------------------\n");
+                printf(" ==============================================================================\n");
                 break;
             default:
                 break;
@@ -205,43 +196,48 @@ stCliente leerCamposAEditar(stCliente cliente)
 
 int buscarPosicionCliente(arrClientes arregloClientes, int idCliente)
 {
-    int encontrado = 0, i = 0;
-    while(i<arregloClientes.numClientes && encontrado == 0)
+    int encontrado = 0, pos = 0;
+    while(pos<=arregloClientes.numClientes && encontrado == 0)
     {
-        if(arregloClientes.clientes[i].idCliente == idCliente)
+        if(arregloClientes.clientes[pos].idCliente == idCliente)
         {
             encontrado = 1;
         }
-        i++;
+        else
+        {
+            pos++;
+        }
     }
 
-    return encontrado;
+    if(encontrado == 0)
+    {
+        pos = -1;
+    }
+    return pos;
 }
 
 int listarCamposEditables(stCliente cliente)
 {
-    printf(" ------------------------------------------------------------------------------\n");
-    printf("\n\t\t    ==> MODIFICACION DE USUARIO <==\n");
-    printf(" ------------------------------------------------------------------------------\n");
+    tituloSecciones("    MODIFICACION DE USUARIO    ");
 
-    printf("\n\n 1-   Nombre: %s", cliente.nombre);
-    printf("\n\n 2- Apellido: %s", cliente.apellido);
-    printf("\n\n 3-     Mail: %s", cliente.mail);
+    printf("\n 1-   Nombre: %s", cliente.nombre);
+    printf("\n 2- Apellido: %s", cliente.apellido);
+    printf("\n 3-     Mail: %s", cliente.mail);
     if(cliente.genero == 'M')
     {
-        printf("\n\n 4-   Genero: Masculino");
+        printf("\n 4-   Genero: Masculino");
     }
     else
     {
-        printf("\n\n 4-   Genero: Femenino");
+        printf("\n 4-   Genero: Femenino");
     }
     if(cliente.rol == 0)
     {
-        printf("\n\n 5-      Rol: Usuario");
+        printf("\n 5-      Rol: Usuario");
     }
     else
     {
-        printf("\n\n 5-      Rol: Admin");
+        printf("\n 5-      Rol: Admin");
     }
-    printf("\n\n 0-      Salir");
+    printf("\n\n 0-    Salir");
 }

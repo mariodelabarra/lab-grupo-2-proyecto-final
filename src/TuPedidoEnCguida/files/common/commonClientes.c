@@ -39,13 +39,13 @@ int leerRol()
 char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor)
 {
     static char caracteres[30];
-    printf(" ------------------------------------------------------------------------------\n");
-    printf("\n\t\t    ==> %d-   %s: %s <==\n", numeroElegido, campo, campoValor);
-    printf(" ------------------------------------------------------------------------------\n\n");
+    printf(" ==============================================================================\n");
+    printf("\t\t    ==> %d-   %s: %s <==\n", numeroElegido, campo, campoValor);
+    printf(" ==============================================================================\n\n");
     puts("\n- Ingrese el nuevo valor: ");
     fflush(stdin);
     gets(caracteres);
-    printf(" ------------------------------------------------------------------------------\n");
+    printf(" ==============================================================================\n");
 
     return caracteres;
 }

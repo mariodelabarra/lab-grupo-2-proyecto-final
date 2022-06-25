@@ -97,7 +97,7 @@ int desactivarCliente(char rutaArchivo[], int idCliente)
 			if (clienteAux.idCliente == idCliente) {
 				fseek(archivoClientes, ftell(archivoClientes) - sizeof(clienteAux), SEEK_SET); /* El puntero se encuentra al final del elemento entonces debemos hacer que retroceda*/
 
-				clienteAux.activo = CLIENTE_DESACACTIVADO;
+				clienteAux.activo = CLIENTE_DESACTIVADO;
 				fwrite(&clienteAux, sizeof(clienteAux), 1, archivoClientes);
 				elimina = 1;
 
