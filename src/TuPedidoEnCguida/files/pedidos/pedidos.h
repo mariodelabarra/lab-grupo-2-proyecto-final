@@ -1,6 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef CLIENTE_H_INCLUDED
+#define CLIENTE_H_INCLUDED
+
+#define PEDIDO_ANULADO 0
 
 typedef struct
 {
@@ -16,3 +17,5 @@ void bajaPedido(stPedido arreglo[], int validos);
 void modificacionPedido(stPedido arreglo[], int validos);
 void consultaPedido(stPedido arreglo[], int validos);
 void listadoPedido(stPedido arreglo[], int validos);
+
+#endif //CLIENTE_H_INCLUDED

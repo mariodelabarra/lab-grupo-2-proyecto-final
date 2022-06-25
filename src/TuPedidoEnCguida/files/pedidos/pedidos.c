@@ -2,7 +2,7 @@
 
 int altaPedido(stPedido arregloPedidos[], int * dim, int pos)
 {
-    int opcion, i = pos;
+    int opcion, i = *dim + 1;
     int sumCosto = 0;
     stPedido aux;
 
@@ -82,7 +82,7 @@ void modificacionPedido(stPedido arregloPedidos[], int validos)
     printf("\nId del pedido a modificar: ");
     scanf("%d", &idPedido);
 
-    arregloPedidos[idPedido].costoTotal = ;
+    arregloPedidos[idPedido].costoTotal = 0;
 
     printf("\n");
     system("pause");

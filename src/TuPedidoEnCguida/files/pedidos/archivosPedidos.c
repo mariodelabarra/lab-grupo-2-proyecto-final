@@ -53,7 +53,7 @@ stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos)
     {
         printfError("Ocurrio un error al querer abrir el archivo.");
 
-        *cantPedidos = 0;
+        *cantPedidos = 1;
         arregloPedidos = NULL;
     }
 
@@ -70,9 +70,9 @@ int insertarPedido(char rutaArchivo[], stPedido pedido)
 
 	if(archivoPedidos != NULL)
     {
-        fwrite(&pedido, sizeof(pedido), 1, archivo);
+        fwrite(&pedido, sizeof(pedido), 1, archivoPedidos);
 		insercion = 1;
-        fclose(archivo);
+        fclose(archivoPedidos);
     }
     else
     {

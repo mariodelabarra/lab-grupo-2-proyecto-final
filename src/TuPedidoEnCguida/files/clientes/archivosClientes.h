@@ -6,6 +6,8 @@
 #define CLIENTE_ACTIVO 1
 #define CLIENTE_DESACACTIVADO 0
 
+#define ARCHIVO_CLIENTES "clientes"
+
 void cargarClientesArchivo(char rutaArchivo[], stCliente arregloClientes[], int dim);
 stCliente * obtenerClientes(char rutaArchivo[], int * cantClientes);
 int insertarCliente(char rutaArchivo[], stCliente cliente);
