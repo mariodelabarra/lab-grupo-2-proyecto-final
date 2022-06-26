@@ -1,16 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> /* setlocale */
+
 #include "files/articulos/articulos.h"
 #include "files/common/fecha.h"
 #include "files/common/mensajes.h"
 #include "files/pedidos/archivosPedidos.h"
 #include "files/pedidos/pedidos.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos);
 void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos);
 
 int main()
 {
+    setlocale(LC_ALL, "spanish"); /* Permite imprimir caracteres con tilde */
+
     stPedido *pedidos;
     int dim;
     pedidos = obtenerPedidos(ARCHIVO_PEDIDO, &dim);
