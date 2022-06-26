@@ -3,6 +3,9 @@
 
 #include "pedidos.h"
 
+#define ARCHIVO_PEDIDO "pedidos.dat"
+#define PEDIDO_ANULADO 0
+
 void cargarPedidosArchivo(char rutaArchivo[], stPedido arregloPedidos[], int dim);
 stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos);
 int insertarPedido(char rutaArchivo[], stPedido pedido);

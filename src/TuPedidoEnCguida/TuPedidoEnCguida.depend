@@ -1,46 +1,56 @@
 # depslib dependency file v1.0
-1655942235 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
+1656256511 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
 	"pedidos.h"
+	"archivosPedidos.h"
+	"../common/mensajes.h"
+	"../common/fecha.h"
+	"../articulos/articulos.h"
 
-1656020188 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
+1656256533 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 
 1655938353 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.c
 	"fecha.h"
 
-1655938353 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.h
+1656256188 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.h
 	<stdio.h>
 	<time.h>
 
-1656188389 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
+1656256300 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
-	"files/clientes/cliente.h"
-	"files/clientes/archivosClientes.h"
+	"files/articulos/articulos.h"
+	"files/common/fecha.h"
+	"files/common/mensajes.h"
+	"files/pedidos/archivosPedidos.h"
+	"files/pedidos/pedidos.h"
 
-1655941809 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.c
+1656256188 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.c
 	<stdio.h>
 	<stdlib.h>
 	"../common/mensajes.h"
 	"pedidos.h"
 	"archivosPedidos.h"
 
-1656020200 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.h
+1656256188 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.h
 	"pedidos.h"
 
 1655938353 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.c
 	"articulos.h"
 
-1655938353 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.h
+1656256188 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.h
 	<stdio.h>
 	<string.h>
 
-1656187166 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
+1656256188 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
 
-1656187953 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.c
+1656256445 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.c
 	"mensajes.h"
 
-1656188595 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.c
+1656256188 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.c
 	<stdlib.h>
 	<stdio.h>
 	"../common/mensajes.h"
@@ -49,7 +59,7 @@
 1656188585 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.h
 	"cliente.h"
 
-1656188123 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
+1656256698 c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
 
 1656188636 source:c:\users\mario\documents\archivos importantes\facultad\utn - mar del plata\laboratorio y programacion i\proyecto final\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.c
 	<stdlib.h>

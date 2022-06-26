@@ -3,11 +3,11 @@
 #include <string.h>
 
 #include "../common/mensajes.h"
+#include "../common/commonClientes.h"
+#include "../common/leerTeclado.h"
 
 #include "cliente.h"
 #include "archivosClientes.h"
-#include "../common/commonClientes.h"
-#include "../common/leerTeclado.h"
 
 void altaCliente(arrClientes *arregloClientes)
 {
@@ -82,7 +82,7 @@ void bajaCliente(arrClientes *arregloClientes, int idCliente)
 
 void modificacionCliente(arrClientes *arregloClientes, int idCliente)
 {
-    int opcion = 0, pos = 0;
+    int pos = 0;
 
     listadoClientes(arregloClientes, "LISTADO DE CLIENTS PARA MODIFICAR");
 
@@ -143,7 +143,7 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
     barraTitulos();
     if(clientesAnulados == 0)
     {
-        printf("\t\t\tNo hay clientes anulados", clientesAnulados);
+        printf("\t\t\tNo hay clientes anulados");
     }
     else
     {
@@ -158,9 +158,7 @@ stCliente leerCamposAEditar(stCliente cliente)
     do
     {
         system("cls");
-        listarCamposEditables(cliente);
-        puts("\n\n - ¿Que campo desea modificar?: ");
-        scanf("%d", &opcion);
+        opcion = listarCamposEditables(cliente);
 
         system("cls");
         switch(opcion)
@@ -175,16 +173,16 @@ stCliente leerCamposAEditar(stCliente cliente)
                 strcpy(cliente.mail, leerStringCampoEditable(2, "Mail", cliente.mail));
                 break;
             case 4:
-                printf(" ==============================================================================\n");
+                barraTitulos();
                 printf("\n\n 1-   Genero: %c", cliente.genero);
                 cliente.genero = leerGenero();
-                printf(" ==============================================================================\n");
+                barraTitulos();
                 break;
             case 5:
-                printf(" ==============================================================================\n");
+                barraTitulos();
                 printf("\n\n 1-   Rol: %d", cliente.rol);
                 cliente.rol = leerRol();
-                printf(" ==============================================================================\n");
+                barraTitulos();
                 break;
             default:
                 break;
@@ -218,6 +216,8 @@ int buscarPosicionCliente(arrClientes arregloClientes, int idCliente)
 
 int listarCamposEditables(stCliente cliente)
 {
+    int opcion = 0;
+
     tituloSecciones("    MODIFICACION DE USUARIO    ");
 
     printf("\n 1-   Nombre: %s", cliente.nombre);
@@ -240,4 +240,9 @@ int listarCamposEditables(stCliente cliente)
         printf("\n 5-      Rol: Admin");
     }
     printf("\n\n 0-    Salir");
+
+    puts("\n\n - ¿Que campo desea modificar?: ");
+    scanf("%d", &opcion);
+
+    return opcion;
 }
