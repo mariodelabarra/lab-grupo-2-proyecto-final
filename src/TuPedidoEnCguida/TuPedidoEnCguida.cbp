@@ -59,6 +59,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="files/common/mensajes.h" />
+		<Unit filename="files/menu/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files/menu/menu.h" />
 		<Unit filename="files/pedidos/archivosPedidos.c">
 			<Option compilerVar="CC" />
 		</Unit>

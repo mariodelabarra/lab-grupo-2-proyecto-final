@@ -69,26 +69,26 @@ int cantArticulos(int idArticulo)
 int altaArticulos()
 {
     int sumCosto = 0, opcion;
-	do
-	{
-	    system("cls");
+    do
+    {
+        system("cls");
 
-	    listadoArticulos();
+        listadoArticulos();
 
-	    printf("\nId del articulo a agregar (0 para salir): ");
-	    scanf("%2d", &opcion);
+        printf("\nId del articulo a agregar (0 para salir): ");
+        scanf("%2d", &opcion);
 
-	    if(opcion < 0 && opcion > 10)
-	    {
-	        printfError("Opcion invalida ingrese nuevamente...");
-	        system("pause");
-	    }
-	    else if(opcion != 0)
-	    {
-	        sumCosto += precioPorId(opcion - 1);
-	    }
-	}
-	while (opcion > 0 && opcion <= 10);
+        if(opcion < 0 && opcion > 10)
+        {
+            printfError("Opcion invalida ingrese nuevamente...");
+            system("pause");
+        }
+        else if(opcion != 0)
+        {
+            sumCosto += precioPorId(opcion - 1);
+        }
+    }
+    while (opcion > 0 && opcion <= 10);
 
     return sumCosto;
 }

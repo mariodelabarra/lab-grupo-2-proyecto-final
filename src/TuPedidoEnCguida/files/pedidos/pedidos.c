@@ -35,7 +35,7 @@ void altaPedido(arrPedidos *arreglo, int idCliente)
     {
         aux.costoTotal = sumCosto;
         aux.idCliente = idCliente;
-        aux.idPedido = arreglo->numPedidos + 1;
+        aux.idPedido = cant;
         aux.pedidoAnulado = 0;
 
         insertado = insertarPedido(ARCHIVO_PEDIDO, aux);
