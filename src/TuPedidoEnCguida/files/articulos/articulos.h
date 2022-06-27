@@ -8,5 +8,7 @@ void listadoArticulos();
 void mostrarArticuloPorId(int idArticulo);
 int precioPorId(int idArticulo);
 int cantArticulos(int idArticulo);
+int altaArticulos();
+
 
 #endif // ARTICULOS_H_INCLUDED

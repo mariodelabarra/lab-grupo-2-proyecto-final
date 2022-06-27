@@ -86,3 +86,96 @@
 	<stdlib.h>
 	"commonClientes.h"
 
+1656289151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\fecha.c
+	"fecha.h"
+
+1656288527 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\fecha.h
+	<stdio.h>
+	<time.h>
+
+1656287992 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\articulos\articulos.c
+	<stdio.h>
+	<stdlib.h>
+	"articulos.h"
+	"../common/mensajes.h"
+
+1656284659 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\articulos\articulos.h
+	<stdio.h>
+	<string.h>
+
+1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\mensajes.h
+
+1656282996 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\archivosclientes.c
+	<stdlib.h>
+	<stdio.h>
+	"../common/mensajes.h"
+	"archivosClientes.h"
+
+1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\archivosclientes.h
+	"cliente.h"
+
+1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.h
+
+1656282996 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"../common/mensajes.h"
+	"../common/commonClientes.h"
+	"../common/leerTeclado.h"
+	"cliente.h"
+	"archivosClientes.h"
+
+1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.h
+
+1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\leerteclado.h
+
+1656282996 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.c
+	<stdio.h>
+	<stdlib.h>
+	"commonClientes.h"
+
+1656282996 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\leerteclado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"leerTeclado.h"
+
+1656282996 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\mensajes.c
+	"mensajes.h"
+
+1656289738 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\archivospedidos.c
+	<stdio.h>
+	<stdlib.h>
+	"../common/mensajes.h"
+	"pedidos.h"
+	"archivosPedidos.h"
+
+1656289230 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../common/fecha.h"
+
+1656285386 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\archivospedidos.h
+	"pedidos.h"
+
+1656289775 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"../common/mensajes.h"
+	"../common/leerTeclado.h"
+	"../articulos/articulos.h"
+	"pedidos.h"
+	"archivosPedidos.h"
+
+1656289374 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"files/articulos/articulos.h"
+	"files/common/mensajes.h"
+	"files/pedidos/archivosPedidos.h"
+	"files/pedidos/pedidos.h"
+

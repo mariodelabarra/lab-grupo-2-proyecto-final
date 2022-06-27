@@ -1,4 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "articulos.h"
+#include "../common/mensajes.h"
 
 int id[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 char nombreArticulo[10][20] =
@@ -59,4 +63,32 @@ int cantArticulos(int idArticulo)
     scanf("%d", &cantidad);
 
     return cantidad;
+}
+
+/* Permite al usuario elejir los articulos retorna una sumatoria de sus costos */
+int altaArticulos()
+{
+    int sumCosto = 0, opcion;
+	do
+	{
+	    system("cls");
+
+	    listadoArticulos();
+
+	    printf("\nId del articulo a agregar (0 para salir): ");
+	    scanf("%2d", &opcion);
+
+	    if(opcion < 0 && opcion > 10)
+	    {
+	        printfError("Opcion invalida ingrese nuevamente...");
+	        system("pause");
+	    }
+	    else if(opcion != 0)
+	    {
+	        sumCosto += precioPorId(opcion - 1);
+	    }
+	}
+	while (opcion > 0 && opcion <= 10);
+
+    return sumCosto;
 }

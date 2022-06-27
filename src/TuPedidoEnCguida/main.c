@@ -3,26 +3,23 @@
 #include <locale.h> /* setlocale */
 
 #include "files/articulos/articulos.h"
-#include "files/common/fecha.h"
 #include "files/common/mensajes.h"
 #include "files/pedidos/archivosPedidos.h"
 #include "files/pedidos/pedidos.h"
 
-void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos);
-void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos);
+void menuProvisional(arrPedidos *arreglo, char nombreArchivo[]);
+void menuPedidos(arrPedidos *arreglo, char nombreArchivo[]);
 
 int main()
 {
     setlocale(LC_ALL, "spanish"); /* Permite imprimir caracteres con tilde */
-
-    stPedido *pedidos;
-    int dim;
-    pedidos = obtenerPedidos(ARCHIVO_PEDIDO, &dim);
-    menuProvisional(pedidos, ARCHIVO_PEDIDO, &dim, 1);
+    arrPedidos arregloPedidos;
+    arregloPedidos.pedidos = obtenerPedidos(ARCHIVO_PEDIDO, &arregloPedidos.numPedidos);
+    menuProvisional(&arregloPedidos, ARCHIVO_PEDIDO);
     return 0;
 }
 
-void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos)
+void menuProvisional(arrPedidos *arreglo, char nombreArchivo[])
 {
     int opcion = 0;
 
@@ -41,7 +38,7 @@ void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, 
         switch (opcion)
         {
             case 1:
-                menuPedidos(arregloPedidos, nombreArchivo, dim, pos);
+                menuPedidos(arreglo, nombreArchivo);
                 break;
             case 0:
                 printf("Adios!");
@@ -55,7 +52,7 @@ void menuProvisional(stPedido arregloPedidos[], char nombreArchivo[], int *dim, 
     }while (opcion != 0);
 }
 
-void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int pos)
+void menuPedidos(arrPedidos *arreglo, char nombreArchivo[])
 {
     int opcion = 0;
     int idCliente;
@@ -81,16 +78,16 @@ void menuPedidos(stPedido arregloPedidos[], char nombreArchivo[], int *dim, int 
         switch (opcion)
         {
             case 1:
-                altaPedido(arregloPedidos, dim, idCliente);
+                altaPedido(arreglo, idCliente);
                 break;
             case 2:
-                bajaPedido(arregloPedidos, *dim, idCliente);
+                bajaPedido(arreglo, idCliente);
                 break;
             case 3:
-                modificacionPedido(arregloPedidos, *dim, idCliente);
+                modificacionPedido(arreglo, idCliente);
                 break;
             case 4:
-                listadoPedido(arregloPedidos, *dim, idCliente);
+                listadoPedido(arreglo, idCliente);
                 break;
             case 0:
                 break;

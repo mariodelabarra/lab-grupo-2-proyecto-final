@@ -6,7 +6,7 @@
 
 #define DIM_FECHA 18
 
-void fechaYHora(char fechaHora[DIM_FECHA]);
+char * fechaYHora();
 void mostrarFecha(char fechaHora[DIM_FECHA]);
 
 #endif // FECHA_H_INCLUDED
