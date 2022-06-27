@@ -26,6 +26,7 @@ void altaPedido(arrPedidos *arreglo, int idCliente);
 void bajaPedido(arrPedidos *arreglo, int idCliente);
 void modificacionPedido(arrPedidos *arreglo, int idCliente);
 void listadoPedido(arrPedidos *arreglo, int idCliente);
+
 int elegirPedido(arrPedidos *arreglo, int idCliente);
 
 #endif // PEDIDOS_H_INCLUDED

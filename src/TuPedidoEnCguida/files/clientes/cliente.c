@@ -150,6 +150,8 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
         printf("\t\t\tClientes anulados: %d", clientesAnulados);
     }
     barraTitulos();
+
+    system("pause");
 }
 
 stCliente leerCamposAEditar(stCliente cliente)

@@ -3,23 +3,32 @@
 #include <locale.h> /* setlocale */
 
 #include "files/articulos/articulos.h"
+#include "files/clientes/archivosClientes.h"
 #include "files/common/mensajes.h"
 #include "files/pedidos/archivosPedidos.h"
 #include "files/pedidos/pedidos.h"
+#include "files/clientes/cliente.h"
 
-void menuProvisional(arrPedidos *arreglo, char nombreArchivo[]);
-void menuPedidos(arrPedidos *arreglo, char nombreArchivo[]);
+void menuProvisional(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char archivoPedidos[], char archivoClientes[]);
+void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[]);
+void menuClientes(arrClientes *arregloPedidos, char nombreArchivo[]);
 
 int main()
 {
     setlocale(LC_ALL, "spanish"); /* Permite imprimir caracteres con tilde */
+
     arrPedidos arregloPedidos;
+    arrClientes arregloClientes;
+
     arregloPedidos.pedidos = obtenerPedidos(ARCHIVO_PEDIDO, &arregloPedidos.numPedidos);
-    menuProvisional(&arregloPedidos, ARCHIVO_PEDIDO);
+    arregloClientes.clientes = obtenerClientes(ARCHIVO_CLIENTES, &arregloClientes.numClientes);
+
+    menuProvisional(&arregloPedidos, &arregloClientes, ARCHIVO_PEDIDO, ARCHIVO_CLIENTES);
+
     return 0;
 }
 
-void menuProvisional(arrPedidos *arreglo, char nombreArchivo[])
+void menuProvisional(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char archivoPedidos[], char archivoClientes[])
 {
     int opcion = 0;
 
@@ -28,42 +37,59 @@ void menuProvisional(arrPedidos *arreglo, char nombreArchivo[])
         system("cls");
         tituloPrincipal();
         printf
-            (
-                "\n\n[1]Pedidos\n"
-                "[0]Salir\n"
-            );
+        (
+            "\n\n[1]Pedidos\n"
+            "[2]Clientes\n"
+            "[0]Salir\n"
+        );
         printf("Ingrese una opcion: ");
         scanf("%d", &opcion);
 
         switch (opcion)
         {
-            case 1:
-                menuPedidos(arreglo, nombreArchivo);
-                break;
-            case 0:
-                printf("Adios!");
-                exit(0);
-                break;
-            default:
-                printfError("Opcion invalida...");
-                break;
+        case 1:
+            menuPedidos(arregloPedidos, arregloClientes, archivoPedidos);
+            break;
+        case 2:
+            menuClientes(arregloClientes, archivoClientes);
+        case 0:
+            printf("Adios!");
+            exit(0);
+            break;
+        default:
+            printfError("Opcion invalida...");
+            break;
         }
 
-    }while (opcion != 0);
+    }
+    while (opcion != 0);
 }
 
-void menuPedidos(arrPedidos *arreglo, char nombreArchivo[])
+void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[])
 {
     int opcion = 0;
-    int idCliente;
+    int idCliente, encontrado = 0;
 
     printf("Ingrese su id de cliente: ");
     scanf("%d", &idCliente);
 
-    do
+    encontrado = buscarPosicionCliente(*arregloClientes, idCliente);
+
+    if(encontrado == -1)
     {
-        system("cls");
-        printf
+        printfError("El cliente no existe");
+        system("pause");
+        altaCliente(arregloClientes);
+    }
+    else
+    {
+        do
+        {
+            system("cls");
+
+            tituloSecciones("PEDIDOS");
+
+            printf
             (
                 "[1]Alta\n"
                 "[2]Baja\n"
@@ -72,29 +98,93 @@ void menuPedidos(arrPedidos *arreglo, char nombreArchivo[])
                 "[0]Salir\n"
             );
 
-        printf("Ingrese una opcion: ");
-        scanf("%d", &opcion);
+            printf("Ingrese una opcion: ");
+            scanf("%d", &opcion);
 
-        switch (opcion)
-        {
+            switch (opcion)
+            {
             case 1:
-                altaPedido(arreglo, idCliente);
+                altaPedido(arregloPedidos, idCliente);
                 break;
             case 2:
-                bajaPedido(arreglo, idCliente);
+                bajaPedido(arregloPedidos, idCliente);
                 break;
             case 3:
-                modificacionPedido(arreglo, idCliente);
+                modificacionPedido(arregloPedidos, idCliente);
                 break;
             case 4:
-                listadoPedido(arreglo, idCliente);
+                listadoPedido(arregloPedidos, idCliente);
                 break;
             case 0:
                 break;
             default:
                 printfError("Opcion invalida...");
                 break;
-        }
+            }
 
-    }while (opcion != 0);
+        }
+        while (opcion != 0);
+    }
+}
+
+void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
+{
+    int opcion = 0;
+    int idCliente, encontrado = 0;
+
+    printf("Ingrese su id de cliente: ");
+    scanf("%d", &idCliente);
+
+    encontrado = buscarPosicionCliente(*arregloClientes, idCliente);
+
+    if(encontrado == -1)
+    {
+        printfError("El cliente no existe");
+        system("pause");
+        altaCliente(arregloClientes);
+    }
+    else
+    {
+        do
+        {
+            system("cls");
+
+            tituloSecciones("CLIENTES");
+
+            printf
+            (
+                "[1]Alta\n"
+                "[2]Baja\n"
+                "[3]Modificacion\n"
+                "[4]Listado\n"
+                "[0]Salir\n"
+            );
+
+            printf("Ingrese una opcion: ");
+            scanf("%d", &opcion);
+
+            switch (opcion)
+            {
+            case 1:
+                altaCliente(arregloClientes);
+                break;
+            case 2:
+                bajaCliente(arregloClientes, idCliente);
+                break;
+            case 3:
+                /* modificarCliente(archivoClientes, stCliente clienteModificado) */
+                break;
+            case 4:
+                listadoClientes(arregloClientes, "LISTADO");
+                break;
+            case 0:
+                break;
+            default:
+                printfError("Opcion invalida...");
+                break;
+            }
+
+        }
+        while (opcion != 0);
+    }
 }

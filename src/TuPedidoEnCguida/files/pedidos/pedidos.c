@@ -5,6 +5,7 @@
 #include "../common/mensajes.h"
 #include "../common/leerTeclado.h"
 #include "../articulos/articulos.h"
+#include "../clientes/cliente.h"
 
 #include "pedidos.h"
 #include "archivosPedidos.h"
