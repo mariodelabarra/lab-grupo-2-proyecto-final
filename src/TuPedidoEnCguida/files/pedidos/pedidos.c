@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <conio.h>
 #include <string.h>
 
 #include "../common/mensajes.h"
@@ -15,6 +16,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
     int cant = arregloPedidos->numPedidos;
     int sumCosto = 0, insertado = 0;
     stPedido aux;
+    char control;
 
     if(cant == 0)
     {
@@ -43,6 +45,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
         if (insertado == 1)
         {
             arregloPedidos->pedidos[cant] = aux;
+            arregloPedidos->numPedidos++;
             printfSucces("El pedido se cargo correctamente");
         }
         else
@@ -54,9 +57,25 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
     }
     else
     {
-        printfWarning("El pedido no se agrego correctamente");
-        system("pause");
-        altaPedido(arregloPedidos, idCliente);
+        printf("WARN: El pedido no se agrego correctamente, desea cargarlo nuevamente s/n: ");
+        fflush(stdin);
+
+        control = getche();
+
+        switch (control)
+        {
+        case 's':
+            altaPedido(arregloPedidos, idCliente);
+            break;
+        case 'n':
+            puts("\n\n");
+            system("pause");
+            break;
+        default:
+            printfError("El caracter ingresado no es valido...");
+            system("pause");
+            break;
+        }
     }
 }
 
@@ -123,14 +142,13 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
         if(arregloPedidos->pedidos[i].pedidoAnulado != 1)
         {
             printf("\n%8d\t$%.2f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
-            printf("\n");
         }
         else
         {
             pedidosAnulados++;
         }
     }
-    printf("Pedidos anulados: %d", pedidosAnulados);
+    printf("\n\n  Pedidos anulados: %d", pedidosAnulados);
     printf("\n\n");
 
     system("pause");
