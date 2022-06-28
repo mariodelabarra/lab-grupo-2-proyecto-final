@@ -148,8 +148,19 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
             pedidosAnulados++;
         }
     }
-    printf("\n\n  Pedidos anulados: %d", pedidosAnulados);
-    printf("\n\n");
+
+    puts("\n");
+    barraTitulos();
+
+    if (pedidosAnulados == 0)
+    {
+        printf("\t\t\tNo hay pedidos anulados");
+    }
+    else
+    {
+        printf("\t\t\tclientes anulados: %d", pedidosAnulados);
+    }
+    barraTitulos();
 
     system("pause");
 }
