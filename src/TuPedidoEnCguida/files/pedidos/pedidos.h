@@ -22,11 +22,11 @@ typedef struct
     int numPedidos;
 } arrPedidos;
 
-void altaPedido(arrPedidos *arreglo, int idCliente);
-void bajaPedido(arrPedidos *arreglo, int idCliente);
-void modificacionPedido(arrPedidos *arreglo, int idCliente);
-void listadoPedido(arrPedidos *arreglo, int idCliente);
+void altaPedido(arrPedidos *arregloPedidos, int idCliente);
+void bajaPedido(arrPedidos *arregloPedidos, int idCliente);
+void modificacionPedido(arrPedidos *arregloPedidos, int idCliente);
+void listadoPedido(arrPedidos *arregloPedidos, int idCliente);
 
-int elegirPedido(arrPedidos *arreglo, int idCliente);
+int elegirPedido(arrPedidos *arregloPedidos, int idCliente);
 
 #endif // PEDIDOS_H_INCLUDED

@@ -10,20 +10,20 @@
 #include "pedidos.h"
 #include "archivosPedidos.h"
 
-void altaPedido(arrPedidos *arreglo, int idCliente)
+void altaPedido(arrPedidos *arregloPedidos, int idCliente)
 {
-    int cant = arreglo->numPedidos;
+    int cant = arregloPedidos->numPedidos;
     int sumCosto = 0, insertado = 0;
     stPedido aux;
 
     if(cant == 0)
     {
-        arreglo->numPedidos = 0;
-        arreglo->pedidos = (stPedido*)malloc(sizeof(stPedido));
+        arregloPedidos->numPedidos = 0;
+        arregloPedidos->pedidos = (stPedido*)malloc(sizeof(stPedido));
     }
     else
     {
-        arreglo->pedidos = (stPedido*)realloc(arreglo->pedidos, sizeof(stPedido) * cant + 1);
+        arregloPedidos->pedidos = (stPedido*)realloc(arregloPedidos->pedidos, sizeof(stPedido) * cant + 1);
     }
 
     system("cls");
@@ -42,25 +42,25 @@ void altaPedido(arrPedidos *arreglo, int idCliente)
 
         if (insertado == 1)
         {
-            arreglo->pedidos[cant] = aux;
+            arregloPedidos->pedidos[cant] = aux;
             printfSucces("El pedido se cargo correctamente");
         }
         else
         {
             printfWarning("El pedido no se cargo correctamente");
             system("pause");
-            altaPedido(arreglo, idCliente);
+            altaPedido(arregloPedidos, idCliente);
         }
     }
     else
     {
         printfWarning("El pedido no se agrego correctamente");
         system("pause");
-        altaPedido(arreglo, idCliente);
+        altaPedido(arregloPedidos, idCliente);
     }
 }
 
-void bajaPedido(arrPedidos *arreglo, int idCliente)
+void bajaPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int idPedido;
     int control = 0;
@@ -69,9 +69,9 @@ void bajaPedido(arrPedidos *arreglo, int idCliente)
 
     tituloSecciones("BAJA DE PEDIDO");
 
-    idPedido = elegirPedido(arreglo, idCliente);
+    idPedido = elegirPedido(arregloPedidos, idCliente);
 
-    arreglo->pedidos[idPedido - 1].pedidoAnulado = 1;
+    arregloPedidos->pedidos[idPedido - 1].pedidoAnulado = 1;
 
     control = anularPedido(ARCHIVO_PEDIDO, idPedido, idCliente);
 
@@ -88,7 +88,7 @@ void bajaPedido(arrPedidos *arreglo, int idCliente)
     system("pause");
 }
 
-void modificacionPedido(arrPedidos *arreglo, int idCliente)
+void modificacionPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int control = 0;
 
@@ -108,7 +108,7 @@ void modificacionPedido(arrPedidos *arreglo, int idCliente)
     system("pause");
 }
 
-void listadoPedido(arrPedidos *arreglo, int idCliente)
+void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int i = 0, pedidosAnulados = 0;
 
@@ -118,11 +118,11 @@ void listadoPedido(arrPedidos *arreglo, int idCliente)
     printf("%8s\t%8s", "IDPEDIDO", "PRECIO");
     barraTitulos();
 
-    for(i = 0; i < arreglo->numPedidos; i++)
+    for(i = 0; i < arregloPedidos->numPedidos; i++)
     {
-        if(arreglo->pedidos[i].pedidoAnulado != 1)
+        if(arregloPedidos->pedidos[i].pedidoAnulado != 1)
         {
-            printf("\n%8d\t$%.2f\t", arreglo->pedidos[i].idPedido, arreglo->pedidos[i].costoTotal);
+            printf("\n%8d\t$%.2f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
             printf("\n");
         }
         else
@@ -136,11 +136,11 @@ void listadoPedido(arrPedidos *arreglo, int idCliente)
     system("pause");
 }
 
-int elegirPedido(arrPedidos *arreglo, int idCliente)
+int elegirPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int pedidoElegido = 0;
 
-    listadoPedido(arreglo, idCliente);
+    listadoPedido(arregloPedidos, idCliente);
 
     printf("Elija un pedido: ");
     scanf("%d", &pedidoElegido);
