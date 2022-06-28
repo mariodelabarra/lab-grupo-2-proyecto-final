@@ -14,6 +14,12 @@ typedef struct
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;
 
+typedef struct
+{
+    stPedido *pedidos;
+    int numPedidos;
+} arrePedidos;
+
 void altaPedido(stPedido arregloPedidos[], int *dim, int idCliente);
 void bajaPedido(stPedido arregloPedidos[], int validos, int idCliente);
 void modificacionPedido(stPedido arregloPedidos[], int validos, int idCliente);

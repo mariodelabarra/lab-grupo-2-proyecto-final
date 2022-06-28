@@ -53,7 +53,6 @@ stCliente * obtenerClientes(char rutaArchivo[], int * cantClientes)
         printfError("Ocurrio un error al querer abrir el archivo.");
 
         *cantClientes = 0;
-        arregloClientes = (stCliente *)malloc(sizeof(stCliente));
     }
 
     return arregloClientes;
