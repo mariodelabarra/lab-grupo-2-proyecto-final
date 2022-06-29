@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "commonClientes.h"
 
@@ -36,6 +37,48 @@ int leerRol()
     return rol;
 }
 
+char * leerEmail(arrClientes *arregloClientes)
+{
+    static char email[30];
+    int valido = 0;
+
+    do
+    {
+        system("cls");
+        tituloSecciones("AGREGAR UN NUEVO CLIENTE");
+
+        strcpy(email, leerString("\nIngrese el mail del cliente: ", 30));
+
+        for(int i = 0; i<30; i++)
+        {
+            if(email[i] == '@')
+            {
+                valido = 1;
+            }
+        }
+
+        if(valido == 0)
+        {
+            printfError("Por favor ingrese un correo electronico valido.");
+            system("pause");
+            system("cls");
+        }
+        else
+        {
+            valido = validarCorreo(arregloClientes, email);
+
+            if(valido == 0)
+            {
+                printfError("El correo ingresado ya existe. Por favor ingrese un correo electronico valido.");
+                system("pause");
+                system("cls");
+            }
+        }
+    }while(valido == 0);
+
+    return email;
+}
+
 char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor)
 {
     static char caracteres[30];
@@ -48,4 +91,18 @@ char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor)
     printf(" ==============================================================================\n");
 
     return caracteres;
+}
+
+int validarCorreo(arrClientes *arregloClientes, char * email)
+{
+    int i = 0, encontrado = 1;
+    while(i < arregloClientes->numClientes && encontrado == 1)
+    {
+        if(strcmp(arregloClientes->clientes[i].mail, email) == 0)
+        {
+            encontrado = 0;
+        }
+        i++;
+    }
+    return encontrado;
 }

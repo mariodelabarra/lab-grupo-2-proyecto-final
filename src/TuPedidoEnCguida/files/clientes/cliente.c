@@ -28,15 +28,15 @@ void altaCliente(arrClientes *arregloClientes)
 
     tituloSecciones("AGREGAR UN NUEVO CLIENTE");
 
-    strcpy(aux.nombre, leerString("\nIngrese el nombre del cliente: ", 30));
-
-    strcpy(aux.apellido, leerString("\nIngrese el apellido del cliente: ", 30));
+    strcpy(aux.mail, leerEmail(arregloClientes));
 
     strcpy(aux.userName, leerString("\nIngrese el username del cliente: ", 20));
 
     strcpy(aux.password, leerString("\nIngrese el password del cliente: ", 20));
 
-    strcpy(aux.mail, leerString("\nIngrese el mail del cliente: ", 30));
+    strcpy(aux.nombre, leerString("\nIngrese el nombre del cliente: ", 30));
+
+    strcpy(aux.apellido, leerString("\nIngrese el apellido del cliente: ", 30));
 
     aux.genero = leerGenero();
     aux.rol = leerRol();
@@ -55,7 +55,6 @@ void altaCliente(arrClientes *arregloClientes)
     {
         printfError("Ocurrio un error al insertar el nuevo cliente");
     }
-
 }
 
 void bajaCliente(arrClientes *arregloClientes, int idCliente)
@@ -120,6 +119,8 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
 {
     int i = 0, clientesAnulados = 0;
 
+    system("cls");
+
     tituloSecciones(tituloListado);
     printf("%8s\t%8s%15s%20s%20s", "IDCLIENTE", "NOMBRE", "APELLIDO", "USERNAME", "MAIL");
     barraTitulos();
@@ -128,7 +129,7 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
     {
         if(arregloClientes->clientes[i].activo != 1)
         {
-            printf("\n%8d\t%8s\t%8s\t%10s\t  %-20.20s", arregloClientes->clientes[i].idCliente, arregloClientes->clientes[i].nombre,
+            printf("\n%8d\t%8s\t%8s\t%-18.18s\t  %-20.20s", arregloClientes->clientes[i].idCliente, arregloClientes->clientes[i].nombre,
                    arregloClientes->clientes[i].apellido,
                    arregloClientes->clientes[i].userName,
                    arregloClientes->clientes[i].mail
@@ -150,6 +151,9 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
         printf("\t\t\tClientes anulados: %d", clientesAnulados);
     }
     barraTitulos();
+
+    puts("\n");
+    system("pause");
 }
 
 stCliente leerCamposAEditar(stCliente cliente)
