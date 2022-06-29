@@ -6,7 +6,10 @@
 
 #define DIM_FECHA 18
 
-char * fechaYHora();
-void mostrarFecha(char fechaHora[DIM_FECHA]);
+/* Carga un string con la fecha y la hora de ejecucion y lo retorna */
+char * fechaYHora(char fechaHora[DIM_FECHA]);
+
+/* Muestra la fecha y hora actuales */
+void mostrarFecha();
 
 #endif // FECHA_H_INCLUDED

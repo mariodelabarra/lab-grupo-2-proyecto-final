@@ -20,7 +20,6 @@ char nombreArticulo[10][20] =
 };
 unsigned int precioArticulo[10] = {454, 240, 1000, 199, 200, 134, 188, 124, 160, 116};
 
-/* Muestra el listado completo de articulos */
 void listadoArticulos()
 {
     int i = 0;
@@ -34,7 +33,6 @@ void listadoArticulos()
     }
 }
 
-/* Muestra por pantalla un articulo segun su id */
 void mostrarArticuloPorId(int idArticulo)
 {
     printf("%d ", id[idArticulo]);
@@ -42,7 +40,6 @@ void mostrarArticuloPorId(int idArticulo)
     printf("$%d\n", precioArticulo[idArticulo]);
 }
 
-/* Calcula el precio de un articulo en la cantidad deseada segun su id */
 int precioPorId(int idArticulo)
 {
     int precio = 0, cantidad = 0;
@@ -54,7 +51,6 @@ int precioPorId(int idArticulo)
     return precio;
 }
 
-/* Consulta la cantidad de articulos y lo retorna */
 int cantArticulos(int idArticulo)
 {
     int cantidad = 0;
@@ -65,7 +61,6 @@ int cantArticulos(int idArticulo)
     return cantidad;
 }
 
-/* Permite al usuario elejir los articulos retorna una sumatoria de sus costos */
 int altaArticulos()
 {
     int sumCosto = 0, opcion;

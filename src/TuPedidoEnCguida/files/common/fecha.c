@@ -1,9 +1,7 @@
 #include "fecha.h"
 
-/* Muestra la fecha y hora actuales */
 char * fechaYHora(char fechaHora[DIM_FECHA])
 {
-
     time_t t = time(NULL);
 
     struct tm tiempoLocal = *localtime(&t);
@@ -22,7 +20,7 @@ char * fechaYHora(char fechaHora[DIM_FECHA])
 
 void mostrarFecha(char fechaHora[DIM_FECHA])
 {
-    fechaYHora(fechaHora);
+    fechaHora = fechaYHora(fechaHora);
 
     for(int i = 0; i < DIM_FECHA; i++)
     {

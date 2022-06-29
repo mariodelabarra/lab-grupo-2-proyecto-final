@@ -20,11 +20,13 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
 
     if(cant == 0)
     {
+        /* establece el numero de pedidos en 0 si no hay ninguno cargado */
         arregloPedidos->numPedidos = 0;
         arregloPedidos->pedidos = (stPedido*)malloc(sizeof(stPedido));
     }
     else
     {
+        /* crea espacio para un pedidio nuevo */
         arregloPedidos->pedidos = (stPedido*)realloc(arregloPedidos->pedidos, sizeof(stPedido) * cant + 1);
     }
 
@@ -35,6 +37,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
 
     if (sumCosto != 0)
     {
+        /* pasaje de variables al arreglo */
         aux.costoTotal = sumCosto;
         aux.idCliente = idCliente;
 

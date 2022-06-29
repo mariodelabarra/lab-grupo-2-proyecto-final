@@ -22,11 +22,19 @@ typedef struct
     int numPedidos;
 } arrPedidos;
 
+/* Permite cargar un pedido (alta) */
 void altaPedido(arrPedidos *arregloPedidos, int idCliente);
+
+/* Permite anular un pedido (baja logica) */
 void bajaPedido(arrPedidos *arregloPedidos, int idCliente);
+
+/* Permite modificar un pedido ya cargado */
 void modificacionPedido(arrPedidos *arregloPedidos, int idCliente);
+
+/* Lista los pedidos cargados */
 void listadoPedido(arrPedidos *arregloPedidos, int idCliente);
 
+/* Lista los pedidos y le pide al usuario que elija uno, retorna el id del pedido elegido */
 int elegirPedido(arrPedidos *arregloPedidos, int idCliente);
 
 #endif // PEDIDOS_H_INCLUDED

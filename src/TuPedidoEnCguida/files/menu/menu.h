@@ -18,8 +18,13 @@
 #include "../clientes/archivosClientes.h"
 #include "../clientes/cliente.h"
 
+/* Menu que engloba pedidos y clientes */
 void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char archivoPedidos[], char archivoClientes[]);
+
+/* Menu abml de pedidos */
 void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[]);
+
+/* Menu abml de clientes */
 void menuClientes(arrClientes *arregloPedidos, char nombreArchivo[]);
 
 #endif // MENU_H_INCLUDED
