@@ -1,9 +1,8 @@
 #include "fecha.h"
 
 /* Muestra la fecha y hora actuales */
-char * fechaYHora()
+char * fechaYHora(char fechaHora[DIM_FECHA])
 {
-    char fechaHora[DIM_FECHA];
 
     time_t t = time(NULL);
 

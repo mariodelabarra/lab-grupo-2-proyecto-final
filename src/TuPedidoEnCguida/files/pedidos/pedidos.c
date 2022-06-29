@@ -37,16 +37,16 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
     {
         aux.costoTotal = sumCosto;
         aux.idCliente = idCliente;
-        aux.idPedido = cant;
-        aux.pedidoAnulado = 0;
 
+        aux.idPedido = cant;
+
+        aux.pedidoAnulado = 0;
         insertado = insertarPedido(ARCHIVO_PEDIDO, aux);
 
         if (insertado == 1)
         {
             arregloPedidos->pedidos[cant] = aux;
             arregloPedidos->numPedidos++;
-            printfSucces("El pedido se cargo correctamente");
         }
         else
         {
@@ -141,7 +141,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
     {
         if(arregloPedidos->pedidos[i].pedidoAnulado != 1)
         {
-            printf("\n%8d\t$%.2f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
+            printf("\n%8d\t$%f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
         }
         else
         {
@@ -158,7 +158,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
     }
     else
     {
-        printf("\t\t\tclientes anulados: %d", pedidosAnulados);
+        printf("\t\tPedidos anulados: %d", pedidosAnulados);
     }
     barraTitulos();
 

@@ -45,7 +45,9 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
     int opcion = 0;
     int idCliente, encontrado = 0;
 
-    printf("Ingrese su id de cliente: ");
+    listadoClientes(arregloClientes, "CLIENTES DISPONIBLES");
+
+    printf("\nIngrese su id de cliente: ");
     scanf("%d", &idCliente);
 
     encontrado = buscarPosicionCliente(*arregloClientes, idCliente);
@@ -133,7 +135,7 @@ void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
             bajaCliente(arregloClientes);
             break;
         case 3:
-            /* modificarCliente(archivoClientes, stCliente clienteModificado) */
+            modificarCliente(arregloClientes);
             break;
         case 4:
             listadoClientes(arregloClientes, "LISTADO");

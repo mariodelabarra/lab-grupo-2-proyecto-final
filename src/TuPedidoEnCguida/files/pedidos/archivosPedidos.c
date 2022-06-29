@@ -55,6 +55,7 @@ stPedido * obtenerPedidos(char rutaArchivo[], int * cantPedidos)
         printfError("Ocurrio un error al querer abrir el archivo.");
 
         *cantPedidos = 0;
+        arregloPedidos = (stPedido *)malloc(sizeof(stPedido));
     }
 
     return arregloPedidos;
