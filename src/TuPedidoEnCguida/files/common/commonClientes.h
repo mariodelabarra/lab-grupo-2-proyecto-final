@@ -9,4 +9,6 @@ char * leerEmail(arrClientes *arregloClientes);
 
 char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor);
 
+int validarCorreo(arrClientes *arregloClientes, char * email);
+
 #endif // COMMONCLIENTES_H_INCLUDED

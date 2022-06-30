@@ -82,7 +82,7 @@ void bajaCliente(arrClientes *arregloClientes)
 
 void modificacionCliente(arrClientes *arregloClientes, int idCliente)
 {
-    int pos = 0, valido = 0;
+    int pos = 0;
 
     do
     {
@@ -211,7 +211,7 @@ int buscarPosicionCliente(arrClientes arregloClientes, int idCliente)
     int encontrado = 0, pos = 0;
     while(pos<=arregloClientes.numClientes && encontrado == 0)
     {
-        if(arregloClientes.clientes[pos].activo != 0 && arregloClientes.clientes[pos].idCliente == idCliente)
+        if(arregloClientes.clientes[pos].activo != 1 && arregloClientes.clientes[pos].idCliente == idCliente)
         {
             encontrado = 1;
         }
