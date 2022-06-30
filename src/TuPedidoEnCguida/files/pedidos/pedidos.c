@@ -14,7 +14,8 @@
 void altaPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int cant = arregloPedidos->numPedidos;
-    int sumCosto = 0, insertado = 0;
+    float sumCosto = 0;
+    int insertado = 0;
     stPedido aux;
     char control;
 
@@ -186,7 +187,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
         {
             if(arregloPedidos->pedidos->idCliente == idCliente)
             {
-                printf("\n%8d\t$%f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
+                printf("\n%8d\t$%.2f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
             }
         }
         else if(arregloPedidos->pedidos->idCliente == idCliente)

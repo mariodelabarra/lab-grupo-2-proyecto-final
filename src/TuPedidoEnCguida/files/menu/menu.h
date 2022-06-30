@@ -24,7 +24,13 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
 /* Menu abml de pedidos */
 void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[]);
 
-/* Menu abml de clientes */
-void menuClientes(arrClientes *arregloPedidos, char nombreArchivo[]);
+/* Menu abml de clientes general */
+void menuClientes(arrClientes *arregloClientes, char nombreArchivo[]);
+
+/* Menu abml de clientes admin */
+void menuClientesAdm(arrClientes *arregloClientes, char nombreArchivo[], int idCliente);
+
+/* Menu abml de cliente usuario*/
+void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int idCliente);
 
 #endif // MENU_H_INCLUDED

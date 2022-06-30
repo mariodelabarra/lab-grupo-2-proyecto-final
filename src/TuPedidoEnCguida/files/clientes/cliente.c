@@ -80,24 +80,11 @@ void bajaCliente(arrClientes *arregloClientes)
     }
 }
 
-void modificacionCliente(arrClientes *arregloClientes, int idCliente)
+void modificacionCliente(arrClientes *arregloClientes)
 {
     int pos = 0;
 
-    do
-    {
-        listadoClientes(arregloClientes, "LISTADO DE CLIENTS PARA MODIFICAR");
-
-        printf("\nSeleccione por id al cliente que desea modificar: ");
-        scanf("%d", &idCliente);
-
-        pos = buscarPosicionCliente(*arregloClientes, idCliente);
-
-        if(pos == -1)
-        {
-            printfWarning("El id ingresado no es correcto. Por favor intente de nuevo.");
-        }
-    }while(pos == -1);
+    pos = pedirCliente(arregloClientes);
     arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
 
     int modificado = modificarCliente(ARCHIVO_CLIENTES, arregloClientes->clientes[pos]);
@@ -259,4 +246,66 @@ int listarCamposEditables(stCliente cliente)
     scanf("%d", &opcion);
 
     return opcion;
+}
+
+int pedirCliente(arrClientes *arregloClientes)
+{
+    int pos = 0, idCliente;
+
+    do
+    {
+        listadoClientes(arregloClientes, "LISTADO DE CLIENTES");
+
+        if(arregloClientes->numClientes > 0)
+        {
+            printf("\nSeleccione por id de cliente a buscar: ");
+            scanf("%d", &idCliente);
+
+            pos = buscarPosicionCliente(*arregloClientes, idCliente);
+
+            if(pos == -1)
+            {
+                printfWarning("El id ingresado no es correcto. Por favor intente de nuevo.");
+                system("pause");
+            }
+        }
+    }while(pos == -1);
+
+    return pos;
+}
+
+void mostrarCliente(arrClientes *arregloClientes, int idCliente)
+{
+    stCliente cliente;
+
+    if(arregloClientes->clientes[idCliente].rol == CLIENTE_ADMIN)
+    {
+        idCliente = pedirCliente(arregloClientes);
+    }
+    cliente = arregloClientes->clientes[idCliente];
+
+    system("cls");
+    tituloSecciones("    DATOS DEL CLIENTE    ");
+
+    printf("\n   Nombre: %s", cliente.nombre);
+    printf("\n Apellido: %s", cliente.apellido);
+    printf("\n     Mail: %s", cliente.mail);
+    if(cliente.genero == 'M')
+    {
+        printf("\n   Genero: Masculino");
+    }
+    else
+    {
+        printf("\n   Genero: Femenino");
+    }
+    if(cliente.rol == 0)
+    {
+        printf("\n      Rol: Usuario");
+    }
+    else
+    {
+        printf("\n      Rol: Admin");
+    }
+    puts("\n");
+    system("pause");
 }
