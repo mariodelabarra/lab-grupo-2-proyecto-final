@@ -1,6 +1,6 @@
 #include "fecha.h"
 
-char * fechaYHora(char fechaHora[DIM_FECHA])
+char * fechaYHora(char fechaHora[])
 {
     time_t t = time(NULL);
 

@@ -39,7 +39,7 @@ void mostrarArticuloPorId(int idArticulo)
 {
     printf("%d ", id[idArticulo]);
     printf("%s ", nombreArticulo[idArticulo]);
-    printf("$%f\n", precioArticulo[idArticulo]);
+    printf("$%.2f\n", precioArticulo[idArticulo]);
 }
 
 int precioPorId(int idArticulo)
