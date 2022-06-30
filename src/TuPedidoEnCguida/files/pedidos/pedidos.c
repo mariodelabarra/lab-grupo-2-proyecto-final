@@ -39,6 +39,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
     {
         /* pasaje de variables al arreglo */
         aux.costoTotal = sumCosto;
+
         aux.idCliente = idCliente;
 
         aux.idPedido = cant;
@@ -50,6 +51,8 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
         {
             arregloPedidos->pedidos[cant] = aux;
             arregloPedidos->numPedidos++;
+            printfSucces("El pedido se cargo correctamente");
+            system("pause");
         }
         else
         {
@@ -85,7 +88,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
 void bajaPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int idPedido;
-    int control = 0;
+    int anulado = 0;
 
     system("cls");
 
@@ -93,11 +96,11 @@ void bajaPedido(arrPedidos *arregloPedidos, int idCliente)
 
     idPedido = elegirPedido(arregloPedidos, idCliente);
 
-    arregloPedidos->pedidos[idPedido - 1].pedidoAnulado = 1;
+    arregloPedidos->pedidos[idPedido].pedidoAnulado = 1;
 
-    control = anularPedido(ARCHIVO_PEDIDO, idPedido, idCliente);
+    anulado = anularPedido(ARCHIVO_PEDIDO, idPedido, idCliente);
 
-    if(control == 1)
+    if(anulado == 1)
     {
         printfSucces("El pedidos se anulo correctamente...");
     }
@@ -112,18 +115,56 @@ void bajaPedido(arrPedidos *arregloPedidos, int idCliente)
 
 void modificacionPedido(arrPedidos *arregloPedidos, int idCliente)
 {
-    int control = 0;
+    int modificado = 0, idPedido, sumCosto;
+    char control;
+    stPedido aux;
 
     system("cls");
     printf("MODIFICAR\n\n");
 
-    if(control == 1)
+    idPedido = elegirPedido(arregloPedidos, idCliente);
+
+    sumCosto = altaArticulos();
+
+    if (sumCosto != 0)
     {
-        printfSucces("El pedidos se modifico correctamente...");
+        /* pasaje de variables al arreglo */
+        aux.costoTotal = sumCosto;
+
+        arregloPedidos->pedidos[idPedido] = aux;
+
+        if (modificado == 1)
+        {
+            printfSucces("El pedido se modifico correctamente");
+            system("pause");
+        }
+        else
+        {
+            printfWarning("El pedido no se modifico correctamente");
+            system("pause");
+        }
     }
     else
     {
-        printfError("El pedidos no se modifico correctamente...");
+        printf("WARN: El nuevo costo del pedido es de $0 desea anularlo s/n: ");
+        fflush(stdin);
+
+        control = getche();
+
+        switch (control)
+        {
+        case 's':
+            bajaPedido(arregloPedidos, idCliente);
+            break;
+        case 'n':
+            puts("\n\n");
+            system("pause");
+            break;
+        default:
+            printfError("El caracter ingresado no es valido...");
+            system("pause");
+            break;
+        }
     }
 
     printf("\n");
@@ -144,9 +185,12 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
     {
         if(arregloPedidos->pedidos[i].pedidoAnulado != 1)
         {
-            printf("\n%8d\t$%f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
+            if(arregloPedidos->pedidos->idCliente == idCliente)
+            {
+                printf("\n%8d\t$%f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
+            }
         }
-        else
+        else if(arregloPedidos->pedidos->idCliente == idCliente)
         {
             pedidosAnulados++;
         }
@@ -172,10 +216,19 @@ int elegirPedido(arrPedidos *arregloPedidos, int idCliente)
 {
     int pedidoElegido = 0;
 
-    listadoPedido(arregloPedidos, idCliente);
+    do
+    {
+        listadoPedido(arregloPedidos, idCliente);
 
-    printf("Elija un pedido: ");
-    scanf("%d", &pedidoElegido);
+        printf("Elija un pedido: ");
+        scanf("%d", &pedidoElegido);
+
+        if(idCliente != arregloPedidos->pedidos[pedidoElegido].idCliente)
+        {
+            printfWarning("El id de pedido no es valido...");
+            system("pause");
+        }
+    } while (idCliente != arregloPedidos->pedidos[pedidoElegido].idCliente);
 
     return pedidoElegido;
 }

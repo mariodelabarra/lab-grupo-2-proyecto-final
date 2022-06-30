@@ -64,6 +64,7 @@ int cantArticulos(int idArticulo)
 int altaArticulos()
 {
     int sumCosto = 0, opcion;
+
     do
     {
         system("cls");

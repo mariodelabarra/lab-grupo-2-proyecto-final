@@ -135,7 +135,7 @@ void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
             bajaCliente(arregloClientes);
             break;
         case 3:
-            modificarCliente(arregloClientes);
+            //modificarCliente(arregloClientes);
             break;
         case 4:
             listadoClientes(arregloClientes, "LISTADO");
