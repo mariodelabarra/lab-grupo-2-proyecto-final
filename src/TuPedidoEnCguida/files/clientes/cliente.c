@@ -17,11 +17,11 @@ void altaCliente(arrClientes *arregloClientes)
     if (cant == 0)
     {
         arregloClientes->numClientes = 0;
-		arregloClientes->clientes = (stCliente*)malloc(sizeof(stCliente));
+        arregloClientes->clientes = (stCliente*)malloc(sizeof(stCliente));
     }
-	else
+    else
     {
-		arregloClientes->clientes = (stCliente*)realloc(arregloClientes->clientes, sizeof(stCliente) * (cant + 1));
+        arregloClientes->clientes = (stCliente*)realloc(arregloClientes->clientes, sizeof(stCliente) * (cant + 1));
     }
 
     system("cls");
@@ -57,8 +57,9 @@ void altaCliente(arrClientes *arregloClientes)
     }
 }
 
-void bajaCliente(arrClientes *arregloClientes, int idCliente)
+void bajaCliente(arrClientes *arregloClientes)
 {
+    int idCliente;
 
     system("cls");
     listadoClientes(arregloClientes, "ANULACION DE CLIENTES");
@@ -141,7 +142,7 @@ void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
                    arregloClientes->clientes[i].apellido,
                    arregloClientes->clientes[i].userName,
                    arregloClientes->clientes[i].mail
-                   );
+                  );
         }
         else
         {
@@ -175,31 +176,32 @@ stCliente leerCamposAEditar(stCliente cliente)
         system("cls");
         switch(opcion)
         {
-            case 1:
-                strcpy(cliente.nombre, leerStringCampoEditable(2, "Nombre", cliente.nombre));
-                break;
-            case 2:
-                strcpy(cliente.apellido, leerStringCampoEditable(2, "Apellido", cliente.apellido));
-                break;
-            case 3:
-                strcpy(cliente.mail, leerStringCampoEditable(2, "Mail", cliente.mail));
-                break;
-            case 4:
-                barraTitulos();
-                printf("\n\n 1-   Genero: %c", cliente.genero);
-                cliente.genero = leerGenero();
-                barraTitulos();
-                break;
-            case 5:
-                barraTitulos();
-                printf("\n\n 1-   Rol: %d", cliente.rol);
-                cliente.rol = leerRol();
-                barraTitulos();
-                break;
-            default:
-                break;
+        case 1:
+            strcpy(cliente.nombre, leerStringCampoEditable(2, "Nombre", cliente.nombre));
+            break;
+        case 2:
+            strcpy(cliente.apellido, leerStringCampoEditable(2, "Apellido", cliente.apellido));
+            break;
+        case 3:
+            strcpy(cliente.mail, leerStringCampoEditable(2, "Mail", cliente.mail));
+            break;
+        case 4:
+            barraTitulos();
+            printf("\n\n 1-   Genero: %c", cliente.genero);
+            cliente.genero = leerGenero();
+            barraTitulos();
+            break;
+        case 5:
+            barraTitulos();
+            printf("\n\n 1-   Rol: %d", cliente.rol);
+            cliente.rol = leerRol();
+            barraTitulos();
+            break;
+        default:
+            break;
         }
-    }while(opcion != 0);
+    }
+    while(opcion != 0);
 
     return cliente;
 }

@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "mensajes.h"
 
 void printfError(char mensaje[])
