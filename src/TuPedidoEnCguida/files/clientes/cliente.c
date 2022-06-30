@@ -81,14 +81,22 @@ void bajaCliente(arrClientes *arregloClientes, int idCliente)
 
 void modificacionCliente(arrClientes *arregloClientes, int idCliente)
 {
-    int pos = 0;
+    int pos = 0, valido = 0;
 
-    listadoClientes(arregloClientes, "LISTADO DE CLIENTS PARA MODIFICAR");
+    do
+    {
+        listadoClientes(arregloClientes, "LISTADO DE CLIENTS PARA MODIFICAR");
 
-    printf("\nSeleccione por id al cliente que desea modificar: ");
-    scanf("%d", &idCliente);
+        printf("\nSeleccione por id al cliente que desea modificar: ");
+        scanf("%d", &idCliente);
 
-    pos = buscarPosicionCliente(*arregloClientes, idCliente);
+        pos = buscarPosicionCliente(*arregloClientes, idCliente);
+
+        if(pos == -1)
+        {
+            printfWarning("El id ingresado no es correcto. Por favor intente de nuevo.");
+        }
+    }while(pos == -1);
     arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
 
     int modificado = modificarCliente(ARCHIVO_CLIENTES, arregloClientes->clientes[pos]);
@@ -201,7 +209,7 @@ int buscarPosicionCliente(arrClientes arregloClientes, int idCliente)
     int encontrado = 0, pos = 0;
     while(pos<=arregloClientes.numClientes && encontrado == 0)
     {
-        if(arregloClientes.clientes[pos].idCliente == idCliente)
+        if(arregloClientes.clientes[pos].activo != 0 && arregloClientes.clientes[pos].idCliente == idCliente)
         {
             encontrado = 1;
         }
