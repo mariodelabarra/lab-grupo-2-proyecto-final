@@ -13,8 +13,8 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
         tituloPrincipal();
         printf
         (
-            "\n\n[1] Clientes\n"
-            "[2] Pedidos\n\n"
+            "\n\n[1] Pedidos\n"
+            "[2] Clientes\n\n"
             "[0] Salir\n\n"
         );
         printf("Ingrese una opcion: ");
@@ -23,10 +23,10 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
         switch (opcion)
         {
         case 1:
-            menuClientes(arregloClientes, archivoClientes, idClienteLogeado);
+            menuPedidos(arregloPedidos, arregloClientes, archivoPedidos, idClienteLogeado);
             break;
         case 2:
-            menuPedidos(arregloPedidos, arregloClientes, archivoPedidos, idClienteLogeado);
+            menuClientes(arregloClientes, archivoClientes, idClienteLogeado);
             break;
         case 0:
             printf("\nAdios!\n");
@@ -43,7 +43,6 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
 void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[], int idClienteLogeado)
 {
     int opcion = 0;
-    int idCliente, encontrado = 0;
 
     do
     {
@@ -90,8 +89,6 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
 
 void menuClientes(arrClientes *arregloClientes, char nombreArchivo[], int idClienteLogeado)
 {
-    int idCliente = 0;
-
     if(arregloClientes->clientes[idClienteLogeado].rol == 1)
     {
         menuClientesAdm(arregloClientes, nombreArchivo, idClienteLogeado);

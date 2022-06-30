@@ -91,14 +91,14 @@
 	<string.h>
 	"commonClientes.h"
 
-1656605193 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\fecha.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\fecha.c
 	"fecha.h"
 
 1656556031 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\fecha.h
 	<stdio.h>
 	<time.h>
 
-1656605687 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\articulos\articulos.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\articulos\articulos.c
 	<stdio.h>
 	<stdlib.h>
 	"articulos.h"
@@ -119,9 +119,9 @@
 1656556031 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\archivosclientes.h
 	"cliente.h"
 
-1656561108 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.h
+1656615151 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.h
 
-1656561108 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\clientes\cliente.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -131,12 +131,12 @@
 	"cliente.h"
 	"archivosClientes.h"
 
-1656556031 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.h
+1656615151 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.h
 	"../clientes/cliente.h"
 
 1656282996 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\leerteclado.h
 
-1656556031 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\common\commonclientes.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -161,7 +161,7 @@
 	"pedidos.h"
 	"archivosPedidos.h"
 
-1656605241 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.h
+1656615151 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -170,7 +170,7 @@
 1656556031 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\archivospedidos.h
 	"pedidos.h"
 
-1656605780 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\pedidos\pedidos.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -183,18 +183,19 @@
 	"pedidos.h"
 	"archivosPedidos.h"
 
-1656556031 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\main.c
+1656615151 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
+	"files/auth/autenticacion.h"
 	"files/menu/menu.h"
 
-1656605674 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\menu\menu.c
+1656615885 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\menu\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
 
-1656561108 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\menu\menu.h
+1656615151 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\menu\menu.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -327,4 +328,16 @@
 
 1656612713 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\auth\autenticacion.h
 	"../clientes/cliente.h"
+
+1656615640 c:\users\mateo\github\proyecto\src\tupedidoencguida\files\auth\autenticacion.h
+	"../clientes/cliente.h"
+	"../common/commonClientes.h"
+	"../common/mensajes.h"
+	"../common/leerTeclado.h"
+
+1656615452 source:c:\users\mateo\github\proyecto\src\tupedidoencguida\files\auth\autenticacion.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autenticacion.h"
 
