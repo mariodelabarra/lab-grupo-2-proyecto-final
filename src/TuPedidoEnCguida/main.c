@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 #include "files/menu/menu.h"
 
@@ -17,4 +18,3 @@ int main()
 
     return 0;
 }
-

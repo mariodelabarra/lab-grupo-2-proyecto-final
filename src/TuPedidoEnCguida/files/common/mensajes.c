@@ -24,19 +24,11 @@ void barraTitulos()
 
 void tituloPrincipal()
 {
-    int i;
-    barraTitulos();
-    printf("\t\t\t     HaC Pedidos\n");
-    printf("\t   Creacion, reportes, eliminacion, busqueda y actualizacion\n");
-    printf("\t\t    Copyright 2022 | Laboratorio I\n");
-    barraTitulos();
-
-    i = 0;
-    putchar('\n');
-    for (; i < 80; i++)
-    {
-        putchar('_');
-    }
+	barraTitulos();
+	printf("\t\t\t     HaC Pedidos\n");
+	printf("\t   Creacion, reportes, eliminacion, busqueda y actualizacion\n");
+	printf("\t\t    Copyright 2022 | Laboratorio I\n");
+	barraTitulos();
 }
 
 void tituloSecciones(char * titulo)

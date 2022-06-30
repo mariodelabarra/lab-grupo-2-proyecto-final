@@ -16,6 +16,7 @@ typedef struct
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;
 
+<<<<<<< HEAD
 typedef struct
 {
     stPedido * pedidos;
@@ -36,5 +37,26 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente);
 
 /* Lista los pedidos y le pide al usuario que elija uno, retorna el id del pedido elegido */
 int elegirPedido(arrPedidos *arregloPedidos, int idCliente);
+||||||| 28af8a3
+void altaPedido(stPedido arregloPedidos[], int *dim, int idCliente);
+void bajaPedido(stPedido arregloPedidos[], int validos, int idCliente);
+void modificacionPedido(stPedido arregloPedidos[], int validos, int idCliente);
+int consultaPedido(stPedido arregloPedidos[], int validos, int idCliente, int idPedido);
+void listadoPedido(stPedido arregloPedidos[], int validos, int idCliente);
+int elegirPedido(stPedido arregloPedidos[], int validos, int idCliente);
+=======
+typedef struct
+{
+    stPedido *pedidos;
+    int numPedidos;
+} arrePedidos;
+
+void altaPedido(stPedido arregloPedidos[], int *dim, int idCliente);
+void bajaPedido(stPedido arregloPedidos[], int validos, int idCliente);
+void modificacionPedido(stPedido arregloPedidos[], int validos, int idCliente);
+int consultaPedido(stPedido arregloPedidos[], int validos, int idCliente, int idPedido);
+void listadoPedido(stPedido arregloPedidos[], int validos, int idCliente);
+int elegirPedido(stPedido arregloPedidos[], int validos, int idCliente);
+>>>>>>> main
 
 #endif // PEDIDOS_H_INCLUDED
