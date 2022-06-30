@@ -57,35 +57,58 @@ void altaCliente(arrClientes *arregloClientes)
     }
 }
 
-void bajaCliente(arrClientes *arregloClientes)
+void bajaCliente(arrClientes *arregloClientes, int idClienteLogeado)
 {
-    int idCliente;
+    int idCliente, opcion = 0;
 
-    system("cls");
-    listadoClientes(arregloClientes, "ANULACION DE CLIENTES");
-
-    printf("\nSeleccione por id al cliente que desea anular: ");
-    scanf("%d", &idCliente);
-
-    int desactivar = desactivarCliente(ARCHIVO_CLIENTES, idCliente);
-
-    if(desactivar == 1)
+    if(arregloClientes->clientes[idClienteLogeado].rol == CLIENTE_ADMIN)
     {
-        arregloClientes->clientes[idCliente].activo = 1;
-        puts("\n\n ! Archivo modificado con exito. !");
+        system("cls");
+        listadoClientes(arregloClientes, "ANULACION DE CLIENTES");
+
+        printf("\nSeleccione por id al cliente que desea anular: ");
+        scanf("%d", &idCliente);
+
+        int desactivar = desactivarCliente(ARCHIVO_CLIENTES, idCliente);
+
+        if(desactivar == 1)
+        {
+            arregloClientes->clientes[idCliente].activo = 1;
+            puts("\n\n ! Archivo modificado con exito. !");
+        }
+        else
+        {
+            printfError("Ha ocurrido un error al intentar desactivar el cliente");
+        }
     }
     else
     {
-        printfError("Ha ocurrido un error al intentar desactivar el cliente");
+        system("cls");
+        tituloSecciones("BAJA DEL CLIENTE");
+        printf("\n¿Esta seguro que desea desactivar el usuario? (0- No/ 1- Si)\n");
+        scanf("%d", &opcion);
+
+        if(opcion == 1)
+        {
+            arregloClientes->clientes[idClienteLogeado] = leerCamposAEditar(arregloClientes->clientes[idClienteLogeado]);
+        }
     }
 }
 
-void modificacionCliente(arrClientes *arregloClientes)
+void modificacionCliente(arrClientes *arregloClientes, int idClienteLogeado)
 {
     int pos = 0;
 
-    pos = pedirCliente(arregloClientes);
-    arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
+    if(arregloClientes->clientes[idClienteLogeado].rol == CLIENTE_ADMIN)
+    {
+        pos = pedirCliente(arregloClientes);
+        arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
+    }
+    else
+    {
+        arregloClientes->clientes[idClienteLogeado] = leerCamposAEditar(arregloClientes->clientes[idClienteLogeado]);
+        pos = idClienteLogeado;
+    }
 
     int modificado = modificarCliente(ARCHIVO_CLIENTES, arregloClientes->clientes[pos]);
 

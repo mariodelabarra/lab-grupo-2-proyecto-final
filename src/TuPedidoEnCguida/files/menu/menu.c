@@ -131,10 +131,10 @@ void menuClientesAdm(arrClientes *arregloClientes, char nombreArchivo[], int idC
             altaCliente(arregloClientes);
             break;
         case 2:
-            bajaCliente(arregloClientes);
+            bajaCliente(arregloClientes, idCliente);
             break;
         case 3:
-            modificacionCliente(arregloClientes);
+            modificacionCliente(arregloClientes, idCliente);
             break;
         case 4:
             listadoClientes(arregloClientes, "LISTADO");
@@ -165,8 +165,9 @@ void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int
         printf
         (
             "\n[1] Modificacion\n"
-            "[2] Listado\n"
-            "[3] Mostrar datos de usuario\n\n"
+            "[2] Baja\n"
+            "[3] Listado\n"
+            "[4] Mostrar datos de usuario\n\n"
             "[0] Salir\n\n"
         );
 
@@ -176,12 +177,15 @@ void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int
         switch (opcion)
         {
         case 1:
-            modificacionCliente(arregloClientes);
+            modificacionCliente(arregloClientes, idCliente);
             break;
         case 2:
-            listadoClientes(arregloClientes, "LISTADO");
+            bajaCliente(arregloClientes, idCliente);
             break;
         case 3:
+            listadoClientes(arregloClientes, "LISTADO");
+            break;
+        case 4:
             mostrarCliente(arregloClientes, idCliente);
         case 0:
             break;

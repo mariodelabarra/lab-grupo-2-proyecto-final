@@ -23,7 +23,9 @@ int login(arrClientes *arregloClientes, char archivoClientes[])
 
             if(encontrado == -1)
             {
-                printf("\nEl usuario ingresado no es valido, por favor ingrese correctamente los datos.");
+                system("cls");
+                tituloPrincipal();
+                printfError("El usuario ingresado no es valido, por favor ingrese correctamente los datos.\n\n");
                 system("pause");
                 system("cls");
                 tituloPrincipal();

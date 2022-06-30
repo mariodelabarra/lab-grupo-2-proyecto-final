@@ -26,9 +26,8 @@ typedef struct
 } arrClientes;
 
 void altaCliente(arrClientes *arreglo);
-void bajaCliente(arrClientes *arreglo);
-void modificacionCliente(arrClientes *arreglo);
-void consultaCliente(arrClientes *arreglo, int idCliente);
+void bajaCliente(arrClientes *arreglo, int idClienteLogeado);
+void modificacionCliente(arrClientes *arreglo, int idClienteLogeado);
 void listadoClientes(arrClientes *arregloClientes, char *tituloListado);
 
 int buscarPosicionCliente(arrClientes arregloClientes, int idCliente);
