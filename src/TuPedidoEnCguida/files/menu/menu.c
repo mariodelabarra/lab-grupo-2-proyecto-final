@@ -13,9 +13,9 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
         tituloPrincipal();
         printf
         (
-            "\n\n[1]Pedidos\n"
-            "[2]Clientes\n"
-            "[0]Salir\n"
+            "\n\n[1] Pedidos\n"
+            "[2] Clientes\n\n"
+            "[0] Salir\n\n"
         );
         printf("Ingrese una opcion: ");
         scanf("%d", &opcion);
@@ -68,11 +68,11 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
 
             printf
             (
-                "[1]Alta\n"
-                "[2]Baja\n"
-                "[3]Modificacion\n"
-                "[4]Listado\n"
-                "[0]Salir\n"
+                "\n[1] Alta\n"
+                "[2] Baja\n"
+                "[3] Modificacion\n"
+                "[4] Listado\n\n"
+                "[0] Salir\n\n"
             );
 
             printf("Ingrese una opcion: ");
@@ -106,21 +106,45 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
 
 void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
 {
+    int idCliente = 0;
+
+    if(arregloClientes->numClientes == 0)
+    {
+        printfError("No existen clientes creados. Por favor cree un nuevo cliente.");
+        system("pause");
+        altaCliente(arregloClientes);
+    }
+
+    idCliente = pedirCliente(arregloClientes);
+
+    if(arregloClientes->clientes[idCliente].rol == 1)
+    {
+        menuClientesAdm(arregloClientes, nombreArchivo, idCliente);
+    }
+    else
+    {
+        menuClientesUsuario(arregloClientes, nombreArchivo, idCliente);
+    }
+}
+
+void menuClientesAdm(arrClientes *arregloClientes, char nombreArchivo[], int idCliente)
+{
     int opcion = 0;
 
     do
     {
         system("cls");
 
-        tituloSecciones("CLIENTES");
+        tituloSecciones("MANEJO CLIENTES ADMIN");
 
         printf
         (
-            "[1]Alta\n"
-            "[2]Baja\n"
-            "[3]Modificacion\n"
-            "[4]Listado\n"
-            "[0]Salir\n"
+            "\n[1] Alta\n"
+            "[2] Baja\n"
+            "[3] Modificacion\n"
+            "[4] Listado\n"
+            "[5] Buscar cliente\n\n"
+            "[0] Salir\n\n"
         );
 
         printf("Ingrese una opcion: ");
@@ -135,11 +159,55 @@ void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
             bajaCliente(arregloClientes);
             break;
         case 3:
-            //modificarCliente(arregloClientes);
+            modificacionCliente(arregloClientes);
             break;
         case 4:
             listadoClientes(arregloClientes, "LISTADO");
             break;
+        case 5:
+            mostrarCliente(arregloClientes, idCliente);
+        case 0:
+            break;
+        default:
+            printfError("Opcion invalida...");
+            break;
+        }
+
+    }
+    while (opcion != 0);
+}
+
+void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int idCliente)
+{
+    int opcion = 0;
+
+    do
+    {
+        system("cls");
+
+        tituloSecciones("MANEJO CLIENTES USUARIO");
+
+        printf
+        (
+            "\n[1] Modificacion\n"
+            "[2] Listado\n"
+            "[3] Mostrar datos de usuario\n\n"
+            "[0] Salir\n\n"
+        );
+
+        printf("Ingrese una opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion)
+        {
+        case 1:
+            modificacionCliente(arregloClientes);
+            break;
+        case 2:
+            listadoClientes(arregloClientes, "LISTADO");
+            break;
+        case 3:
+            mostrarCliente(arregloClientes, idCliente);
         case 0:
             break;
         default:

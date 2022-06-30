@@ -3,6 +3,9 @@
 
 #define CAMPOS_EDITABLES 7
 
+#define CLIENTE_ADMIN 1
+#define CLIENTE_USUARIO 0
+
 typedef struct
 {
     int idCliente; // auto incremental
@@ -24,12 +27,15 @@ typedef struct
 
 void altaCliente(arrClientes *arreglo);
 void bajaCliente(arrClientes *arreglo);
-void modificacionCliente(arrClientes *arreglo, int idCliente);
+void modificacionCliente(arrClientes *arreglo);
 void consultaCliente(arrClientes *arreglo, int idCliente);
 void listadoClientes(arrClientes *arregloClientes, char *tituloListado);
 
 int buscarPosicionCliente(arrClientes arregloClientes, int idCliente);
 stCliente leerCamposAEditar(stCliente cliente);
 int listarCamposEditables(stCliente cliente);
+
+int pedirCliente(arrClientes *arregloClientes);
+void mostrarCliente(arrClientes *arregloClientes, int idCliente);
 
 #endif // CLIENTE_H_INCLUDED

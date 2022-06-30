@@ -17,7 +17,7 @@ int precioPorId(int idArticulo);
 int cantArticulos(int idArticulo);
 
 /* Permite al usuario elejir los articulos retorna una sumatoria de sus costos */
-int altaArticulos();
+float altaArticulos();
 
 
 #endif // ARTICULOS_H_INCLUDED

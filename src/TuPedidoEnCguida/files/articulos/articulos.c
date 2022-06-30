@@ -18,18 +18,20 @@ char nombreArticulo[10][20] =
     "1L y 1/2 Agua Pop",
     "1L Jugo Andes"
 };
-unsigned int precioArticulo[10] = {454, 240, 1000, 199, 200, 134, 188, 124, 160, 116};
+float precioArticulo[10] = {454, 240, 1000, 199, 200, 134, 188, 124, 160, 116};
 
 void listadoArticulos()
 {
     int i = 0;
 
-    printf("Listado de articulos:\n");
+    tituloSecciones("LISTADO DE ARTICULOS");
+
+    puts("\n");
     for(i = 0; i < 10; i++)
     {
-        printf("%d ", id[i]);
+        printf("[%d] ", id[i]);
         printf("%s ", nombreArticulo[i]);
-        printf("$%d\n", precioArticulo[i]);
+        printf("$%.2f\n", precioArticulo[i]);
     }
 }
 
@@ -37,7 +39,7 @@ void mostrarArticuloPorId(int idArticulo)
 {
     printf("%d ", id[idArticulo]);
     printf("%s ", nombreArticulo[idArticulo]);
-    printf("$%d\n", precioArticulo[idArticulo]);
+    printf("$%f\n", precioArticulo[idArticulo]);
 }
 
 int precioPorId(int idArticulo)
@@ -61,9 +63,10 @@ int cantArticulos(int idArticulo)
     return cantidad;
 }
 
-int altaArticulos()
+float altaArticulos()
 {
-    int sumCosto = 0, opcion;
+    float sumCosto = 0;
+    int opcion;
 
     do
     {
