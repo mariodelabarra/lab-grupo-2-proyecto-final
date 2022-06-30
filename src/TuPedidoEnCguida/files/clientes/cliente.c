@@ -102,15 +102,6 @@ void modificacionCliente(arrClientes *arregloClientes)
     system("pause");
 }
 
-void consultaCliente(arrClientes *arregloClientes, int idCliente)
-{
-    system("cls");
-    printf("BUSCAR\n\n");
-
-    printf("\n");
-    system("pause");
-}
-
 void listadoClientes(arrClientes *arregloClientes, char *tituloListado)
 {
     int i = 0, clientesAnulados = 0;
@@ -201,6 +192,37 @@ int buscarPosicionCliente(arrClientes arregloClientes, int idCliente)
         if(arregloClientes.clientes[pos].activo != 1 && arregloClientes.clientes[pos].idCliente == idCliente)
         {
             encontrado = 1;
+        }
+        else
+        {
+            pos++;
+        }
+    }
+
+    if(encontrado == 0)
+    {
+        pos = -1;
+    }
+    return pos;
+}
+
+int buscarClientePorUsuario(arrClientes arregloClientes, char *userName, char *password)
+{
+    int encontrado = 0, pos = 0;
+
+    while(pos<=arregloClientes.numClientes && encontrado == 0 && encontrado != -1)
+    {
+        if(strcmp(arregloClientes.clientes[pos].userName, userName) == 0 &&
+           strcmp(arregloClientes.clientes[pos].password, password) == 0)
+        {
+            if(arregloClientes.clientes[pos].activo == 0)
+            {
+                encontrado = -1;
+            }
+            else
+            {
+                encontrado = 1;
+            }
         }
         else
         {

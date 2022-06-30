@@ -81,6 +81,29 @@ char * leerEmail(arrClientes *arregloClientes)
     return email;
 }
 
+char * leerPassword()
+{
+    static char password[33];
+
+    printf("\nIngrese el password del cliente: \n");
+    int p=0;
+
+    do{
+        fflush(stdin);
+        password[p]=getch();
+
+        if(password[p]!='\r'){
+            printf("*");
+        }
+
+        p++;
+
+    }while(password[p-1]!='\r');
+
+    password[p-1]='\0';
+    return password;
+}
+
 char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor)
 {
     static char caracteres[30];

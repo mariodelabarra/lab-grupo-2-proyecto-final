@@ -32,6 +32,8 @@ void consultaCliente(arrClientes *arreglo, int idCliente);
 void listadoClientes(arrClientes *arregloClientes, char *tituloListado);
 
 int buscarPosicionCliente(arrClientes arregloClientes, int idCliente);
+int buscarClientePorUsuario(arrClientes arregloClientes, char *userName, char *password);
+
 stCliente leerCamposAEditar(stCliente cliente);
 int listarCamposEditables(stCliente cliente);
 

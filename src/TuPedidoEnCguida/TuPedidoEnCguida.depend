@@ -205,7 +205,7 @@
 	"../clientes/archivosClientes.h"
 	"../clientes/cliente.h"
 
-1656555421 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.c
+1656610287 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\articulos\articulos.c
 	<stdio.h>
 	<stdlib.h>
 	"articulos.h"
@@ -217,7 +217,7 @@
 
 1656545580 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\mensajes.h
 
-1656551584 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.c
+1656610287 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.c
 	"fecha.h"
 
 1656551584 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\fecha.h
@@ -245,9 +245,9 @@
 1656551584 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\archivosclientes.h
 	"cliente.h"
 
-1656554585 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
+1656611516 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.h
 
-1656551584 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.c
+1656611893 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -255,7 +255,7 @@
 	"mensajes.h"
 	"leerTeclado.h"
 
-1656551584 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.h
+1656611121 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\common\commonclientes.h
 	"../clientes/cliente.h"
 
 1656551584 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.c
@@ -265,7 +265,7 @@
 	"pedidos.h"
 	"archivosPedidos.h"
 
-1656551584 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
+1656610287 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -274,7 +274,7 @@
 1656551584 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\archivospedidos.h
 	"pedidos.h"
 
-1656555317 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
+1656610287 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\pedidos\pedidos.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -283,16 +283,18 @@
 	"../common/leerTeclado.h"
 	"../articulos/articulos.h"
 	"../clientes/cliente.h"
+	"../common/fecha.h"
 	"pedidos.h"
 	"archivosPedidos.h"
 
-1656551584 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
+1656613052 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
+	"files/auth/autenticacion.h"
 	"files/menu/menu.h"
 
-1656554632 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\menu\menu.h
+1656613175 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\menu\menu.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -303,12 +305,12 @@
 	"../clientes/archivosClientes.h"
 	"../clientes/cliente.h"
 
-1656554834 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\menu\menu.c
+1656613183 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\menu\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"menu.h"
 
-1656554501 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.c
+1656614006 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\clientes\cliente.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -317,4 +319,12 @@
 	"../common/leerTeclado.h"
 	"cliente.h"
 	"archivosClientes.h"
+
+1656614350 source:c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\auth\autenticacion.c
+	<stdio.h>
+	<stdlib.h>
+	"autenticacion.h"
+
+1656612713 c:\users\mdelabarra\onedrive - endava\documents\facultad\lab-grupo-2-proyecto-final\src\tupedidoencguida\files\auth\autenticacion.h
+	"../clientes/cliente.h"
 
