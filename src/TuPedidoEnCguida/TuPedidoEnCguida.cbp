@@ -43,10 +43,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="files/clientes/cliente.h" />
-		<Unit filename="files/clientes/menuCliente.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="files/clientes/menuCliente.h" />
 		<Unit filename="files/common/commonClientes.c">
 			<Option compilerVar="CC" />
 		</Unit>

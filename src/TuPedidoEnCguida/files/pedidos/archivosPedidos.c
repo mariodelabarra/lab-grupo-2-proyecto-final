@@ -124,7 +124,7 @@ int anularPedido(char rutaArchivo[], int idPedido, int idCliente)
     return elimina;
 }
 
-int modificarProducto(char rutaArchivo[], stPedido pedidoModificado)
+int modificarPedido(char rutaArchivo[], stPedido pedidoModificado)
 {
     int modifica = 0;
     stPedido pedidoAux;

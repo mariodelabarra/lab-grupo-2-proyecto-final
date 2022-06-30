@@ -3,6 +3,8 @@
 #include <string.h>
 
 #include "commonClientes.h"
+#include "mensajes.h"
+#include "leerTeclado.h"
 
 char leerGenero()
 {

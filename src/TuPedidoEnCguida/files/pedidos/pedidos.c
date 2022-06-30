@@ -131,7 +131,9 @@ void modificacionPedido(arrPedidos *arregloPedidos, int idCliente)
         /* pasaje de variables al arreglo */
         aux.costoTotal = sumCosto;
 
-        arregloPedidos->pedidos[idPedido] = aux;
+        arregloPedidos->pedidos[idPedido].costoTotal = aux.costoTotal;
+
+        modificado = modificarPedido(ARCHIVO_PEDIDO, arregloPedidos->pedidos[idPedido]);
 
         if (modificado == 1)
         {
@@ -166,9 +168,6 @@ void modificacionPedido(arrPedidos *arregloPedidos, int idCliente)
             break;
         }
     }
-
-    printf("\n");
-    system("pause");
 }
 
 void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
