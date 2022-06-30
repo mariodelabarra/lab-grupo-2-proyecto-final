@@ -3,7 +3,7 @@
 
 #include "menu.h"
 
-void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char archivoPedidos[], char archivoClientes[])
+void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char archivoPedidos[], char archivoClientes[], int idClienteLogeado)
 {
     int opcion = 0;
 
@@ -23,10 +23,10 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
         switch (opcion)
         {
         case 1:
-            menuPedidos(arregloPedidos, arregloClientes, archivoPedidos);
+            menuPedidos(arregloPedidos, arregloClientes, archivoPedidos, idClienteLogeado);
             break;
         case 2:
-            menuClientes(arregloClientes, archivoClientes);
+            menuClientes(arregloClientes, archivoClientes, idClienteLogeado);
             break;
         case 0:
             printf("\nAdios!\n");
@@ -40,90 +40,62 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
     while (opcion != 0);
 }
 
-void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[])
+void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[], int idClienteLogeado)
 {
     int opcion = 0;
-    int idCliente, encontrado = 0;
 
-    listadoClientes(arregloClientes, "CLIENTES DISPONIBLES");
-
-    printf("\nIngrese su id de cliente: ");
-    scanf("%d", &idCliente);
-
-    encontrado = buscarPosicionCliente(*arregloClientes, idCliente);
-
-    if(encontrado == -1)
+    do
     {
-        printfError("El cliente no existe");
-        system("pause");
-        altaCliente(arregloClientes);
-    }
-    else
-    {
-        do
+        system("cls");
+
+        tituloSecciones("PEDIDOS");
+
+        printf
+        (
+            "\n[1] Alta\n"
+            "[2] Baja\n"
+            "[3] Modificacion\n"
+            "[4] Listado\n\n"
+            "[0] Salir\n\n"
+        );
+
+        printf("Ingrese una opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion)
         {
-            system("cls");
-
-            tituloSecciones("PEDIDOS");
-
-            printf
-            (
-                "\n[1] Alta\n"
-                "[2] Baja\n"
-                "[3] Modificacion\n"
-                "[4] Listado\n\n"
-                "[0] Salir\n\n"
-            );
-
-            printf("Ingrese una opcion: ");
-            scanf("%d", &opcion);
-
-            switch (opcion)
-            {
-            case 1:
-                altaPedido(arregloPedidos, idCliente);
-                break;
-            case 2:
-                bajaPedido(arregloPedidos, idCliente);
-                break;
-            case 3:
-                modificacionPedido(arregloPedidos, idCliente);
-                break;
-            case 4:
-                listadoPedido(arregloPedidos, idCliente);
-                break;
-            case 0:
-                break;
-            default:
-                printfError("Opcion invalida...");
-                break;
-            }
-
+        case 1:
+            altaPedido(arregloPedidos, idClienteLogeado);
+            break;
+        case 2:
+            bajaPedido(arregloPedidos, idClienteLogeado);
+            break;
+        case 3:
+            modificacionPedido(arregloPedidos, idClienteLogeado);
+            break;
+        case 4:
+            listadoPedido(arregloPedidos, idClienteLogeado);
+            break;
+        case 0:
+            break;
+        default:
+            printfError("Opcion invalida...");
+            break;
         }
-        while (opcion != 0);
+
     }
+    while (opcion != 0);
 }
 
-void menuClientes(arrClientes *arregloClientes, char nombreArchivo[])
+void menuClientes(arrClientes *arregloClientes, char nombreArchivo[], int idClienteLogeado)
 {
-    int idCliente = 0;
-
-    if(arregloClientes->numClientes == 0)
+    if(arregloClientes->clientes[idClienteLogeado].rol == 1)
     {
-        printfError("No existen clientes creados. Por favor cree un nuevo cliente.");
-        system("pause");
-        altaCliente(arregloClientes);
-    }
-
-    idCliente = pedirCliente(arregloClientes);
-
-    if(arregloClientes->clientes[idCliente].rol == 1)
-    {
-        menuClientesAdm(arregloClientes, nombreArchivo, idCliente);
+        menuClientesAdm(arregloClientes, nombreArchivo, idClienteLogeado);
     }
     else
     {
-        menuClientesUsuario(arregloClientes, nombreArchivo, idCliente);
+        menuClientesUsuario(arregloClientes, nombreArchivo, idClienteLogeado);
     }
 }
 
@@ -156,10 +128,10 @@ void menuClientesAdm(arrClientes *arregloClientes, char nombreArchivo[], int idC
             altaCliente(arregloClientes);
             break;
         case 2:
-            bajaCliente(arregloClientes);
+            bajaCliente(arregloClientes, idCliente);
             break;
         case 3:
-            modificacionCliente(arregloClientes);
+            modificacionCliente(arregloClientes, idCliente);
             break;
         case 4:
             listadoClientes(arregloClientes, "LISTADO");
@@ -190,8 +162,9 @@ void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int
         printf
         (
             "\n[1] Modificacion\n"
-            "[2] Listado\n"
-            "[3] Mostrar datos de usuario\n\n"
+            "[2] Baja\n"
+            "[3] Listado\n"
+            "[4] Mostrar datos de usuario\n\n"
             "[0] Salir\n\n"
         );
 
@@ -201,12 +174,15 @@ void menuClientesUsuario(arrClientes *arregloClientes, char nombreArchivo[], int
         switch (opcion)
         {
         case 1:
-            modificacionCliente(arregloClientes);
+            modificacionCliente(arregloClientes, idCliente);
             break;
         case 2:
-            listadoClientes(arregloClientes, "LISTADO");
+            bajaCliente(arregloClientes, idCliente);
             break;
         case 3:
+            listadoClientes(arregloClientes, "LISTADO");
+            break;
+        case 4:
             mostrarCliente(arregloClientes, idCliente);
         case 0:
             break;

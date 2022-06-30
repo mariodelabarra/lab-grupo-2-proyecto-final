@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="files/articulos/articulos.h" />
+		<Unit filename="files/auth/autenticacion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files/auth/autenticacion.h" />
 		<Unit filename="files/clientes/archivosClientes.c">
 			<Option compilerVar="CC" />
 		</Unit>

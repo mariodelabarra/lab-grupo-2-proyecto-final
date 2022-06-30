@@ -5,9 +5,12 @@
 
 char leerGenero();
 int leerRol();
+
 char * leerEmail(arrClientes *arregloClientes);
 
 char * leerStringCampoEditable(int numeroElegido, char *campo, char *campoValor);
+
+char * leerPassword();
 
 int validarCorreo(arrClientes *arregloClientes, char * email);
 
