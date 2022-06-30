@@ -4,8 +4,9 @@
 #include "articulos.h"
 #include "../common/mensajes.h"
 
-int id[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-char nombreArticulo[10][20] =
+const int id[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+const char nombreArticulo[10][20] =
 {
     "Vino Tinto",
     "Vino Blanco",
@@ -18,7 +19,8 @@ char nombreArticulo[10][20] =
     "1L y 1/2 Agua Pop",
     "1L Jugo Andes"
 };
-float precioArticulo[10] = {454, 240, 1000, 199, 200, 134, 188, 124, 160, 116};
+
+const float precioArticulo[10] = {454, 240, 1000, 199, 200, 134, 188, 124, 160, 116};
 
 void listadoArticulos()
 {
