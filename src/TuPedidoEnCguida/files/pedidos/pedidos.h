@@ -11,7 +11,7 @@ typedef struct
 {
     int idPedido;      // auto incremental
     int idCliente;     // este valor corresponde al id del cliente que realizó el pedido
-    //char fecha[DIM_FECHA];    // dd/MM/aaaa
+    char fecha[DIM_FECHA];    // dd/MM/aaaa
     float costoTotal;  // sumatoria de precio por unidad
     int pedidoAnulado; // indica 1 o 0 si el pedido fue anulado o no
 } stPedido;

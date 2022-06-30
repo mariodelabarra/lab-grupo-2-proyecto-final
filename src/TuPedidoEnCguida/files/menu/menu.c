@@ -29,7 +29,7 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
             menuClientes(arregloClientes, archivoClientes);
             break;
         case 0:
-            printf("Adios!");
+            printf("\nAdios!\n");
             exit(0);
             break;
         default:

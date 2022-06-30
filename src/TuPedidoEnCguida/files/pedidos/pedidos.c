@@ -7,6 +7,7 @@
 #include "../common/leerTeclado.h"
 #include "../articulos/articulos.h"
 #include "../clientes/cliente.h"
+#include "../common/fecha.h"
 
 #include "pedidos.h"
 #include "archivosPedidos.h"
@@ -18,6 +19,7 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
     int insertado = 0;
     stPedido aux;
     char control;
+    char fecha[DIM_FECHA];
 
     if(cant == 0)
     {
@@ -46,6 +48,9 @@ void altaPedido(arrPedidos *arregloPedidos, int idCliente)
         aux.idPedido = cant;
 
         aux.pedidoAnulado = 0;
+
+        strcpy(aux.fecha, fechaYHora(fecha));
+
         insertado = insertarPedido(ARCHIVO_PEDIDO, aux);
 
         if (insertado == 1)
@@ -178,7 +183,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
     system("cls");
     tituloSecciones("LISTADO PEDIDOS");
 
-    printf("%8s\t%8s", "IDPEDIDO", "PRECIO");
+    printf("%8s\t%8s\t%8s", "IDPEDIDO", "PRECIO", "FECHA");
     barraTitulos();
 
     for(i = 0; i < arregloPedidos->numPedidos; i++)
@@ -187,7 +192,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
         {
             if(arregloPedidos->pedidos->idCliente == idCliente)
             {
-                printf("\n%8d\t$%.2f\t", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal);
+                printf("\n%8d\t$%.2f         %s", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal, arregloPedidos->pedidos[i].fecha);
             }
         }
         else if(arregloPedidos->pedidos->idCliente == idCliente)
