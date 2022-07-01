@@ -36,7 +36,7 @@ int buscarClientePorUsuario(arrClientes arregloClientes, char *userName, char *p
 stCliente leerCamposAEditar(stCliente cliente);
 int listarCamposEditables(stCliente cliente);
 
-int pedirCliente(arrClientes *arregloClientes);
+int pedirCliente(arrClientes *arregloClientes, char *textoPedir);
 void mostrarCliente(arrClientes *arregloClientes, int idCliente);
 
 #endif // CLIENTE_H_INCLUDED

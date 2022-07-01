@@ -42,7 +42,7 @@ void menuPrincipal(arrPedidos *arregloPedidos, arrClientes *arregloClientes, cha
 
 void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char nombreArchivo[], int idClienteLogeado)
 {
-    int opcion = 0;
+    int opcion = 0, idClienteAltaPedido;
 
     do
     {
@@ -65,7 +65,8 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
         switch (opcion)
         {
         case 1:
-            altaPedido(arregloPedidos, idClienteLogeado);
+            idClienteAltaPedido = pedirCliente(arregloClientes, "\nSeleccione por id de cliente al cual desea agregar el pedido: ");
+            altaPedido(arregloPedidos, idClienteAltaPedido);
             break;
         case 2:
             bajaPedido(arregloPedidos, idClienteLogeado);
@@ -74,7 +75,8 @@ void menuPedidos(arrPedidos *arregloPedidos, arrClientes *arregloClientes, char 
             modificacionPedido(arregloPedidos, idClienteLogeado);
             break;
         case 4:
-            listadoPedido(arregloPedidos, idClienteLogeado);
+            idClienteAltaPedido = pedirCliente(arregloClientes, "\nSeleccione por id del cliente del cual desea listar los pedidos: ");
+            listadoPedido(arregloPedidos, idClienteAltaPedido);
             break;
         case 0:
             break;
