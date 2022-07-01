@@ -101,7 +101,7 @@ void modificacionCliente(arrClientes *arregloClientes, int idClienteLogeado)
 
     if(arregloClientes->clientes[idClienteLogeado].rol == CLIENTE_ADMIN)
     {
-        pos = pedirCliente(arregloClientes);
+        pos = pedirCliente(arregloClientes, "\nSeleccione por id de cliente a buscar: ");
         arregloClientes->clientes[pos] = leerCamposAEditar(arregloClientes->clientes[pos]);
     }
     else
@@ -293,7 +293,7 @@ int listarCamposEditables(stCliente cliente)
     return opcion;
 }
 
-int pedirCliente(arrClientes *arregloClientes)
+int pedirCliente(arrClientes *arregloClientes, char *textoPedir)
 {
     int pos = 0, idCliente;
 
@@ -303,7 +303,7 @@ int pedirCliente(arrClientes *arregloClientes)
 
         if(arregloClientes->numClientes > 0)
         {
-            printf("\nSeleccione por id de cliente a buscar: ");
+            printf(textoPedir);
             scanf("%d", &idCliente);
 
             pos = buscarPosicionCliente(*arregloClientes, idCliente);
@@ -325,7 +325,7 @@ void mostrarCliente(arrClientes *arregloClientes, int idCliente)
 
     if(arregloClientes->clientes[idCliente].rol == CLIENTE_ADMIN)
     {
-        idCliente = pedirCliente(arregloClientes);
+        idCliente = pedirCliente(arregloClientes, "\nSeleccione por id de cliente a buscar: ");
     }
     cliente = arregloClientes->clientes[idCliente];
 

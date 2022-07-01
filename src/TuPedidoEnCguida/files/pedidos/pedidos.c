@@ -190,7 +190,7 @@ void listadoPedido(arrPedidos *arregloPedidos, int idCliente)
     {
         if(arregloPedidos->pedidos[i].pedidoAnulado != 1)
         {
-            if(arregloPedidos->pedidos->idCliente == idCliente)
+            if(arregloPedidos->pedidos[i].idCliente == idCliente)
             {
                 printf("\n%8d\t$%.2f         %s", arregloPedidos->pedidos[i].idPedido, arregloPedidos->pedidos[i].costoTotal, arregloPedidos->pedidos[i].fecha);
             }
